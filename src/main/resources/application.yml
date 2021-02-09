@@ -1,0 +1,43 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+  devtools:
+    livereload:
+      enabled: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/myongji?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+#    schema: classpath:initdata.sql
+#    initialization-mode: always
+
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+      use-new-id-generator-mappings: false # jpa의 기본 넘버링을 따르지 않겠다.
+    show-sql: true
+    properties:
+      hibernate.format_sql: true # 보기 편하게 정렬되서 보여줌.
+
+# Lazy-loading으로 인해 empty-beans이 생길 수 있다. 너그럽게 빈 객체를 허락해주는 옵션이다.
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
