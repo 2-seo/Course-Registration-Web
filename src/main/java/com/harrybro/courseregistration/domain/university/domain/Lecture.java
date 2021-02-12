@@ -34,4 +34,5 @@ public class Lecture {
         this.time = time;
         this.major = major;
     }
+
 }

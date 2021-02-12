@@ -22,15 +22,19 @@
     <%--  summernote  --%>
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+          integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <%--  css  --%>
     <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/campus.css">
 </head>
 <body>
 <header>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <!-- Brand -->
         <div>
-            <a class="navbar-brand" href="/">Blog</a>
+            <a class="navbar-brand" href="/">명지대학교</a>
         </div>
 
         <!-- Toggler/collapsibe Button -->
@@ -57,7 +61,7 @@
                             <a class="nav-link" href="/basket">장바구니</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/enrollment">수강신청</a>
+                            <a class="nav-link" href="/campus">강의조회</a>
                         </li>
                         <sec:authorize access="hasRole('ADMIN')">
                             <li class="nav-item">

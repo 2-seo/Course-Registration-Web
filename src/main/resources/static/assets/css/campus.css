@@ -1,0 +1,36 @@
+.box_search {
+    position: relative;
+    border: 1px solid;
+    border-radius: 10px;
+    width: 31em;
+    height: 2.5em;
+    padding: 0.5em;
+}
+
+.search_input {
+    width: 25em;
+    border: 0;
+}
+
+.search_option {
+    margin-right: 0.5em;
+}
+
+.search_option_list {
+    list-style-type: none;
+    display: none;
+}
+
+.search_option_list .active {
+    display: block;
+}
+
+.dropdown-toggle {
+    margin: 0;
+    padding: 0;
+}
+
+.box_search_img {
+    position: absolute;
+    right: 10px;
+}

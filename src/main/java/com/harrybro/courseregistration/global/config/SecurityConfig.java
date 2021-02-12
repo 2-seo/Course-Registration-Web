@@ -35,15 +35,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/", "/auth/**", "/assets/**") // auth 로 시작하는 거 전부
-                    .permitAll() // 허용하고,
+                    .antMatchers("/", "/auth/**", "/assets/**")
+                    .permitAll()
                     .antMatchers("/board/saveForm'").hasAnyRole("USER", "ADMIN")
-                    .anyRequest() // 그 외 request 는
-                    .authenticated() // 인증이 필요하다.
+                    .anyRequest()
+                    .authenticated()
                 .and()
                     .formLogin()
                     .loginPage("/auth/login")
-                    .loginProcessingUrl("/auth/login") // spring security 가 해당 주소로 요청오는 로그인을 가로채서 대신 로그인 해준다.
+                    .loginProcessingUrl("/auth/login")
                     .defaultSuccessUrl("/");
     }
 
