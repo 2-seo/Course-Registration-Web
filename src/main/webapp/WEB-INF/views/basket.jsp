@@ -26,7 +26,7 @@
                 <td>${lecture.lecturer}</td>
                 <td>${lecture.credit}</td>
                 <td>${lecture.time}</td>
-                <td><button type="button" class="btn btn-primary">삭제</button></td>
+                <td><button type="button" class="btn btn-primary" onclick="basket.deleteLectureInBasket(${lecture.id})">삭제</button></td>
                 <td><button type="button" class="btn btn-primary">신청</button></td>
             </tr>
         </c:forEach>
@@ -71,6 +71,26 @@
         })
     })
 
+    let basket = {
+        deleteLectureInBasket: function (lectureID) {
+            $.ajax({
+                type: "DELETE",
+                url: 'api/basket/' + lectureID,
+                // data: JSON.stringify(data),
+                // contentType: "application/json; charset=utf-8",
+                // dataType: "json"
+            }).done(function (response) {
+                if (response.statusCode === 200) {
+                    alert(response.message)
+                }
+                console.log(response);
+                location.href = '/basket';
+            }).fail(function (error) {
+                console.log(error);
+                // alert(JSON.stringify(error))
+            });
+        }
+    }
 </script>
 
 <%@ include file="layout/footer.jsp"%>
