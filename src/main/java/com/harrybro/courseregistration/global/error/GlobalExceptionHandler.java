@@ -22,4 +22,12 @@ public class GlobalExceptionHandler {
                 .build();
     }
 
+    @ExceptionHandler(value = IllegalArgumentException.class)
+    public ResponseDto<Object> handleRuntimeException(IllegalArgumentException e) {
+        return ResponseDto.builder()
+                .status(HttpStatus.BAD_REQUEST)
+                .errorMessage(e.getMessage())
+                .build();
+    }
+
 }

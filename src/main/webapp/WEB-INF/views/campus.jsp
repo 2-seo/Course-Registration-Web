@@ -3,6 +3,7 @@
 <%@ include file="layout/header.jsp" %>
 <main class="container">
     <div class="d-flex justify-content-center m-5">
+        <%--    검생창    --%>
         <div class="d-flex box_search">
             <div class="dropdown">
                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
@@ -24,6 +25,7 @@
             </div>
         </div>
     </div>
+    <%--  조회 결과 테이블  --%>
     <table class="table">
         <thead>
         <tr>
@@ -46,7 +48,7 @@
                 <td>${lecture.lecturer}</td>
                 <td>${lecture.credit}</td>
                 <td>${lecture.time}</td>
-                <td><button type="button" class="btn btn-primary">담기</button> </td>
+                <td><button type="button" class="btn btn-primary" onclick="basket.saveLecture(${lecture.id})">담기</button> </td>
                 <td><button type="button" class="btn btn-primary">신청</button> </td>
             </tr>
         </c:forEach>
@@ -63,6 +65,23 @@
             dropdown_toggle.innerHTML = item.innerHTML;
         })
     })
+
+    let basket = {
+        saveLecture: function (lectureID) {
+            $.ajax({
+                type: "POST",
+                url: 'api/basket/' + lectureID,
+            }).done(function (response) {
+                if (response.statusCode === 200) {
+                    alert(response.message);
+                } else {
+                    alert(response.errorMessage);
+                }
+            }).fail(function (error) {
+                console.log(error);
+            });
+        }
+    }
 
 </script>
 

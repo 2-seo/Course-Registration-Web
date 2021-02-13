@@ -6,8 +6,10 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.*;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @NoArgsConstructor
@@ -30,6 +32,10 @@ public class Basket {
     @OrderBy("id desc ")
     @OneToMany
     private List<Lecture> lectures;
+
+    public void saveLecture(Lecture lecture) {
+        lectures.add(lecture);
+    }
 
     public void deleteLecture(Lecture lecture) {
         lectures.remove(lecture);
