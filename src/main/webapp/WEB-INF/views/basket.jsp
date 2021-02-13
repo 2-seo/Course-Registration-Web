@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset-UTF-8" pageEncoding="utf-8" %>
 
 <%@ include file="layout/header.jsp" %>
-<main class="container">
+<main class="container mt-4">
     <h2>장바구니</h2>
 <%--    <input type="text" value="${basket_lectures}">--%>
     <table class="table">
@@ -26,8 +26,8 @@
                 <td>${lecture.lecturer}</td>
                 <td>${lecture.credit}</td>
                 <td>${lecture.time}</td>
-                <td><button type="button" class="btn btn-primary" onclick="basket.deleteLectureInBasket(${lecture.id})">삭제</button></td>
-                <td><button type="button" class="btn btn-primary">신청</button></td>
+                <td><button type="button" class="btn btn-primary" onclick="basket.deleteLecture(${lecture.id})">삭제</button></td>
+                <td><button type="button" class="btn btn-primary" onclick="enrollment.saveLecture(${lecture.id})">신청</button></td>
             </tr>
         </c:forEach>
         </tbody>
@@ -54,12 +54,15 @@
                 <td>${lecture.lecturer}</td>
                 <td>${lecture.credit}</td>
                 <td>${lecture.time}</td>
-                <td><button type="button" class="btn btn-primary">삭제</button> </td>
+                <td><button type="button" class="btn btn-primary" onclick="enrollment.deleteLecture(${lecture.id})">삭제</button> </td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </main>
+
+<script src="/assets/js/basket.js"></script>
+<script src="/assets/js/enrollment.js"></script>
 
 <script>
     const dropdown_toggle = document.querySelector('.dropdown-toggle');
@@ -69,28 +72,7 @@
         item.addEventListener('click', () => {
             dropdown_toggle.innerHTML = item.innerHTML;
         })
-    })
-
-    let basket = {
-        deleteLectureInBasket: function (lectureID) {
-            $.ajax({
-                type: "DELETE",
-                url: 'api/basket/' + lectureID,
-                // data: JSON.stringify(data),
-                // contentType: "application/json; charset=utf-8",
-                // dataType: "json"
-            }).done(function (response) {
-                if (response.statusCode === 200) {
-                    alert(response.message)
-                }
-                console.log(response);
-                location.href = '/basket';
-            }).fail(function (error) {
-                console.log(error);
-                // alert(JSON.stringify(error))
-            });
-        }
-    }
+    });
 </script>
 
 <%@ include file="layout/footer.jsp"%>

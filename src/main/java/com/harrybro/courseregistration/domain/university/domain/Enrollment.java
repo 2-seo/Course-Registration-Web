@@ -28,4 +28,12 @@ public class Enrollment {
     @OneToMany
     private List<Lecture> lectures;
 
+    public void saveLecture(Lecture lecture) {
+        this.lectures.add(lecture);
+    }
+
+    public void deleteLecture(Lecture lecture) {
+        this.lectures.remove(lecture);
+    }
+
 }

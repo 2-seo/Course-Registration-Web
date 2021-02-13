@@ -56,6 +56,8 @@
     </table>
 </main>
 
+<script src="/assets/js/basket.js"></script>
+<script src="/assets/js/enrollment.js"></script>
 <script>
     const dropdown_toggle = document.querySelector('.dropdown-toggle');
     const dropdown_item = document.querySelectorAll(".dropdown-item");
@@ -64,42 +66,7 @@
         item.addEventListener('click', () => {
             dropdown_toggle.innerHTML = item.innerHTML;
         })
-    })
-
-    let basket = {
-        saveLecture: function (lectureID) {
-            $.ajax({
-                type: "POST",
-                url: 'api/basket/' + lectureID,
-            }).done(function (response) {
-                if (response.statusCode === 200) {
-                    alert(response.message);
-                } else {
-                    alert(response.errorMessage);
-                }
-            }).fail(function (error) {
-                console.log(error);
-            });
-        }
-    }
-
-    let enrollment = {
-        saveLecture: function (lectureID) {
-            $.ajax({
-                type: "POST",
-                url: 'api/enrollment/' + lectureID,
-            }).done(function (response) {
-                if (response.statusCode === 200) {
-                    alert(response.message);
-                } else {
-                    alert(response.errorMessage);
-                }
-            }).fail(function (error) {
-                console.log(error);
-            });
-        }
-    }
-
+    });
 </script>
 
 <%@ include file="layout/footer.jsp"%>
