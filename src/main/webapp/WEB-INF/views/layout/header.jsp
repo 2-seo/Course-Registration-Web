@@ -23,13 +23,27 @@
     <%--  css  --%>
     <link rel="stylesheet" href="/assets/css/index.css">
     <link rel="stylesheet" href="/assets/css/lecture.css">
+    <style>
+        .navbar-brand img{
+            width: 170px;
+        }
+        .nav-item a {
+            color: #F2F2F2;
+        }
+        .nav-item a:hover {
+            color: #BDBDBD;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-md" style="background-color: #002968">
+            <div class="container">
             <!-- Brand -->
             <div>
-                <a class="navbar-brand" href="/">명지대학교</a>
+                <a class="navbar-brand" href="/">
+                    <img src="/assets/images/mju-logo-white.png" alt="logo">
+                </a>
             </div>
 
             <!-- Toggler/collapsibe Button -->
@@ -38,7 +52,7 @@
             </button>
 
             <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
                 <c:choose>
                     <c:when test="${empty principal}">
                         <ul class="navbar-nav text-center">
@@ -73,5 +87,7 @@
                     </c:otherwise>
                 </c:choose>
             </div>
+            </div>
         </nav>
+
     </header>
