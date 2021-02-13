@@ -10,8 +10,8 @@
     <div class="d-flex justify-content-center m-5">
         <%--    검생창    --%>
         <div class="d-flex box_search">
-            <div class="dropdown">
-                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            <div class="dropdown px-2">
+                <button type="button" class="search_option btn dropdown-toggle align-top shadow-none" data-toggle="dropdown">
                     전체
                 </button>
                 <div class="dropdown-menu">
@@ -22,7 +22,7 @@
             </div>
 
             <div class="box_search_input">
-                <input type="text" name="" id="" class="search_input" placeholder="검색어를 입력하세요.">
+                <input type="text" name="" id="" class="search_input" placeholder="검색어를 입력하세요">
             </div>
 
             <div class="box_search_img">
@@ -75,106 +75,22 @@
 
 <%--임시--%>
 <script>
-    // Toast 동적 생성
-    let toastCount = 0;
-    let TOASTTYPE = {
-        'SUCCESS': 'text-primary',
-        'FAIL': 'text-danger'
-    }
-    function createMyToast(type, title, content, time) {
-        toastCount += 1;
-        let specificClass = 'myToast' + toastCount;
-        let toast_container = document.querySelector('.toast_container');
+    const search_input = document.querySelector('.search_input');
 
-        let toast = document.createElement('div');
-        toast.classList.add('toast', specificClass);
-        toast.setAttribute('role', 'alert');
-        toast.setAttribute('aria-live', 'assertive');
-        toast.setAttribute('data-delay', time);
-        toast.style.minWidth = '300px';
+    search_input.addEventListener('keypress', evnet => {
+        if (evnet.key == 'Enter') {
+            let search_option = document.querySelector('.search_option').innerText.trim();
+            let search_word = search_input.value;
+            if (search_option === '전체') {
+                location.href = '/lecture/search?name=' + search_word + '&lecturer=' + search_word;
+            } else if (search_option === '교과목명') {
+                location.href = '/lecture/search?name=' + search_word;
+            } else if (search_option === '교수명') {
+                location.href = '/lecture/search?lecturer=' + search_word;
 
-        let toast_header = document.createElement('div');
-        toast_header.classList.add('toast-header');
-
-        let toast_header__strong = document.createElement('storng');
-        toast_header__strong.classList.add('mr-auto', type)
-        toast_header__strong.innerText = title;
-
-        let toast_header__small = document.createElement('small');
-        toast_header__small.classList.add('text-muted');
-        toast_header__small.innerText = 'just now';
-
-        let toast_header__button = document.createElement('button');
-        toast_header__button.setAttribute('type', 'button');
-        toast_header__button.setAttribute('data-dismiss', 'toast');
-        toast_header__button.classList.add('ml-2', 'mb-1', 'close');
-
-        let toast_header__button__span = document.createElement('span');
-        toast_header__button__span.setAttribute('aria-hidden', 'true');
-        toast_header__button__span.innerText = "×"
-
-        let toast_body = document.createElement('div');
-        toast_body.classList.add('toast-body');
-        toast_body.innerText = content;
-
-        //  결합
-        toast_header__button.append(toast_header__button__span);
-        toast_header.append(toast_header__strong);
-        toast_header.append(toast_header__small);
-        toast_header.append(toast_header__button);
-        toast.append(toast_header);
-        toast.append(toast_body);
-        toast_container.append(toast);
-
-        $('.' + specificClass).toast('show');
-        setTimeout(() => {
-            toast_container.removeChild(toast);
-        }, time + 2000);
-    }
-
-    // 수강신청
-    let enrollment = {
-
-        save: function (lectureID) {
-            $.ajax({
-                type: "POST",
-                url: 'api/enrollment/' + lectureID,
-            }).done(function (response) {
-                if (response.statusCode === 200) {
-                    createMyToast(TOASTTYPE.SUCCESS, '수강신청', response.message, 5000);
-
-                } else {
-                    createMyToast(TOASTTYPE.FAIL, '수강신청', response.errorMessage, 5000);
-
-                }
-            }).fail(function (error) {
-                console.log(error);
-            });
-        },
-
-    }
-
-    // 장바구니
-    let basket = {
-
-        save: function (lectureID) {
-            $.ajax({
-                type: "POST",
-                url: 'api/basket/' + lectureID,
-            }).done(function (response) {
-                if (response.statusCode === 200) {
-                    createMyToast(TOASTTYPE.SUCCESS, '장바구니', response.message, 5000);
-
-                } else {
-                    createMyToast(TOASTTYPE.FAIL, '장바구니', response.errorMessage, 5000);
-
-                }
-            }).fail(function (error) {
-                console.log(error);
-            });
-        },
-
-    }
+            }
+        }
+    });
 </script>
 
 <%@ include file="layout/footer.jsp"%>
