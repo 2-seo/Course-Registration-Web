@@ -19,5 +19,5 @@
     </div>
 </main>
 
-<script src="/assets/js/account.js"></script>
+<script src="/assets/js/account.js" defer></script>
 <%@ include file="layout/footer.jsp"%>

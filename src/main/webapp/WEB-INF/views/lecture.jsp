@@ -56,8 +56,7 @@
     </table>
 </main>
 
-<script src="/assets/js/basket.js"></script>
-<script src="/assets/js/enrollment.js"></script>
+<script src="/assets/js/logic.js" defer></script>
 <script>
     const dropdown_toggle = document.querySelector('.dropdown-toggle');
     const dropdown_item = document.querySelectorAll(".dropdown-item");

@@ -1,3 +1,5 @@
+import {createResultAlert, basketResultMessageBox} from '/assets/js/bootstrap.create-alert.js';
+
 let enrollment = {
 
     saveLecture: function (lectureID) {
@@ -6,9 +8,9 @@ let enrollment = {
             url: 'api/enrollment/' + lectureID,
         }).done(function (response) {
             if (response.statusCode === 200) {
-                alert(response.message);
+                createResultAlert(basketResultMessageBox, 'alert-success', response.message);
             } else {
-                alert(response.errorMessage);
+                createResultAlert(basketResultMessageBox, 'alert-danger', response.errorMessage);
             }
         }).fail(function (error) {
             console.log(error);
@@ -21,10 +23,10 @@ let enrollment = {
             url: 'api/enrollment/' + lectureID,
         }).done(function (response) {
             if (response.statusCode === 200) {
-                alert(response.message)
+                createResultAlert(enrollmentResultMessageBox, 'alert-success', response.message)
             }
             console.log(response);
-            location.href = '/basket';
+            // location.href = '/basket';
         }).fail(function (error) {
             console.log(error);
         });
