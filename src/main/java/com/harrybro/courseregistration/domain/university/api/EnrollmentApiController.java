@@ -1,6 +1,6 @@
 package com.harrybro.courseregistration.domain.university.api;
 
-import com.harrybro.courseregistration.domain.university.service.BasketService;
+import com.harrybro.courseregistration.domain.university.dto.EnrollmentSaveResponse;
 import com.harrybro.courseregistration.domain.university.service.EnrollmentService;
 import com.harrybro.courseregistration.global.config.auth.PrincipalDetail;
 import com.harrybro.courseregistration.global.dto.ResponseDto;
@@ -16,13 +16,13 @@ public class EnrollmentApiController {
     private final EnrollmentService enrollmentService;
 
     @PostMapping("/enrollment/{id}")
-    public ResponseDto saveLecture(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
-        return enrollmentService.saveLecture(lectureID, principal);
+    public ResponseDto<EnrollmentSaveResponse> save(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
+        return enrollmentService.save(lectureID, principal);
     }
 
     @DeleteMapping("/enrollment/{id}")
-    public ResponseDto deleteLecture(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
-        return enrollmentService.deleteLecture(lectureID, principal);
+    public ResponseDto delete(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
+        return enrollmentService.delete(lectureID, principal);
     }
 
 }

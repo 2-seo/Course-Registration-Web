@@ -58,7 +58,7 @@
             <th scope="col">수강신청</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="enrollment_table_body">
         <c:forEach var="lecture" items="${enrollment_lectures}">
             <tr>
                 <td>${lecture.id}</td>
@@ -102,6 +102,6 @@
 </div>
 
 <%-- javascript --%>
-<script src="/assets/js/logic.js" defer></script>
+<script src="/assets/js/basket-logic.js" defer></script>
 
 <%@ include file="layout/footer.jsp"%>

@@ -46,7 +46,7 @@ let MODALLOGICTYPE = {
 };
 let modalLogic;
 let deleteTargetNode;
-///////////////////////////////////////////////////
+
 let toBeCreatedList = [
     {
         button: '.btn_enrollment_save',
@@ -114,6 +114,45 @@ let enrollment = {
         }).done(function (response) {
             if (response.statusCode === 200) {
                 createResultAlert(basketResultMessageBox, 'alert-success', response.message);
+
+                // 테이블 데이터 동적 생성 로직
+                let enrollment_table_body = document.querySelector('.enrollment_table_body');
+                let tableRow = document.createElement('tr');
+                let tableData_id = document.createElement('td');
+                let tableData_major = document.createElement('td');
+                let tableData_Name = document.createElement('td');
+                let tableData_lecturer = document.createElement('td');
+                let tableData_credit = document.createElement('td');
+                let tableData_time = document.createElement('td');
+                let tableData_button = document.createElement('td');
+                let deleteButton = document.createElement('button');
+                let hiddenInput = document.createElement('input')
+
+                tableData_id.innerText = response.data.id;
+                tableData_major.innerText = response.data.major;
+                tableData_Name.innerText =response.data.name;
+                tableData_lecturer.innerText = response.data.lecturer;
+                tableData_credit.innerText = response.data.credit;
+                tableData_time.innerText = response.data.time;
+                deleteButton.innerText = '삭제';
+                deleteButton.classList.add('btn_enrollment_delete', 'btn', 'btn-danger');
+                deleteButton.addEventListener('click', function(event) {
+                    createModal('수강신청', '해당 과목을 수강 취소하시겠습니까?', event, MODALLOGICTYPE.ENROLLMENT.delete)
+                });
+                hiddenInput.setAttribute('type', 'hidden');
+                hiddenInput.setAttribute('value', response.data.id);
+
+                deleteButton.append(hiddenInput)
+                tableData_button.append(deleteButton)
+                tableRow.append(tableData_id);
+                tableRow.append(tableData_major);
+                tableRow.append(tableData_Name);
+                tableRow.append(tableData_lecturer);
+                tableRow.append(tableData_credit);
+                tableRow.append(tableData_time);
+                tableRow.append(tableData_button);
+                enrollment_table_body.append(tableRow);
+
             } else {
                 createResultAlert(basketResultMessageBox, 'alert-danger', response.errorMessage);
             }
@@ -134,7 +173,6 @@ let enrollment = {
                 let removeTargetNode = event.parentNode.parentNode;
                 event.parentNode.parentNode.parentNode.removeChild(removeTargetNode);
             }
-            console.log(response);
             // location.href = '/basket';
         }).fail(function (error) {
             console.log(error);
