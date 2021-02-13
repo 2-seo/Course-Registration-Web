@@ -42,7 +42,7 @@ public class EnrollmentService {
 
         return ResponseDto.<EnrollmentSaveResponse>builder()
                 .status(HttpStatus.OK)
-                .message("선택한 과목이 수강 신청 완료되었습니다.")
+                .message("선택한 과목을 수강신청 완료하였습니다.")
                 .data(new EnrollmentSaveResponse(lecture))
                 .build();
     }
@@ -58,7 +58,7 @@ public class EnrollmentService {
 
         return ResponseDto.builder()
                 .status(HttpStatus.OK)
-                .message("선택한 과목이 장바구니에서 삭제되었습니다.")
+                .message("선택한 과목을 수강 취소하였습니다.")
                 .build();
     }
 

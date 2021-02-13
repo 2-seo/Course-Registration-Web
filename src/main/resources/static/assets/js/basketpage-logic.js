@@ -92,13 +92,10 @@ let btn_modal_ok = document.querySelector('#btn_modal_ok');
 btn_modal_ok.addEventListener('click', () => {
     $('#myModal').modal('hide');
     if (modalLogic === MODALLOGICTYPE.ENROLLMENT.save) {
-        console.log(1)
         enrollment.save(lectureID);
     } else if (modalLogic === MODALLOGICTYPE.BASKET.delete) {
-        console.log(2)
         basket.delete(deleteTargetNode, lectureID);
     } else if (modalLogic === MODALLOGICTYPE.ENROLLMENT.delete) {
-        console.log(3)
         enrollment.delete(deleteTargetNode, lectureID);
     }
 });

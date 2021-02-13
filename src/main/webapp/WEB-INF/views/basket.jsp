@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset-UTF-8" pageEncoding="utf-8" %>
 
 <%@ include file="layout/header.jsp" %>
-<main class="container mt-4">
+<main class="container" style="padding: 50px 0 250px">
     <%--  장바구니 테이블  --%>
     <h2>장바구니</h2>
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -46,7 +46,7 @@
     <div class="basket_result_message_box"></div>
     <%--  수강신청 테이블  --%>
     <h2>수강신청</h2>
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">#</th>
@@ -102,6 +102,6 @@
 </div>
 
 <%-- javascript --%>
-<script src="/assets/js/basket-logic.js" defer></script>
+<script src="/assets/js/basketpage-logic.js" defer></script>
 
 <%@ include file="layout/footer.jsp"%>

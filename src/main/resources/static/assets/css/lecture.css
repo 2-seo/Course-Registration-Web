@@ -34,3 +34,10 @@
     position: absolute;
     right: 10px;
 }
+
+/* Toast CSS */
+.toast_container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
