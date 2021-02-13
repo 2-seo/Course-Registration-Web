@@ -71,7 +71,7 @@ INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('발표와�
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('한국근현대사의이해', '윤홍석', 3, '월수10:30-11:45', 3);
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('민주주의와현대사회', '윤홍석', 3, '월수10:30-11:45', 3);
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('콘텐츠디자인1', '김일주', 3, '화목10:30-11:45', 4);
-INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('객체지향적사고와프로그래밍', '최성운', 3, '월수10:30-11:45', 5);
+INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('객체지향적사고와프로그래밍', '최성운', 3, '월수10:30-11:45', 2);
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('중급회계', '김기영', 3, '화목15:00-16:15', 6);
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('재무분석', '심명화', 3, '화목15:00-16:15', 6);
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('정부회계', '박경진', 3, '화목15:00-16:15', 6);
@@ -195,4 +195,3 @@ INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('건축설�
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('건축설계', '남수현', 5, '금09:00-11:50', 45);
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('영어1', '김혜수', 2, '화목12:30-13:45', 1);
 INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('전기전자1', '김민수', 3, '월수10:30-11:45', 32);
-INSERT INTO lecture (name, lecturer, credit, time, major_id) VALUES ('객체3', '최성운', 3, '월수10:30-11:45', 16);
