@@ -15,13 +15,13 @@ public class BasketApiController {
     private final BasketService basketService;
 
     @PostMapping("/basket/{id}")
-    public ResponseDto saveLectureInBasket(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
-        return basketService.saveLectureInBasket(lectureID, principal);
+    public ResponseDto saveLecture(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
+        return basketService.saveLecture(lectureID, principal);
     }
 
     @DeleteMapping("/basket/{id}")
-    public ResponseDto deleteLectureInBasket(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
-        return basketService.deleteLectureInBasket(lectureID, principal);
+    public ResponseDto deleteLecture(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
+        return basketService.deleteLecture(lectureID, principal);
     }
 
 }

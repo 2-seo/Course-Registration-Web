@@ -49,7 +49,7 @@
                 <td>${lecture.credit}</td>
                 <td>${lecture.time}</td>
                 <td><button type="button" class="btn btn-primary" onclick="basket.saveLecture(${lecture.id})">담기</button> </td>
-                <td><button type="button" class="btn btn-primary">신청</button> </td>
+                <td><button type="button" class="btn btn-primary" onclick="enrollment.saveLecture(${lecture.id})">신청</button> </td>
             </tr>
         </c:forEach>
         </tbody>
@@ -71,6 +71,23 @@
             $.ajax({
                 type: "POST",
                 url: 'api/basket/' + lectureID,
+            }).done(function (response) {
+                if (response.statusCode === 200) {
+                    alert(response.message);
+                } else {
+                    alert(response.errorMessage);
+                }
+            }).fail(function (error) {
+                console.log(error);
+            });
+        }
+    }
+
+    let enrollment = {
+        saveLecture: function (lectureID) {
+            $.ajax({
+                type: "POST",
+                url: 'api/enrollment/' + lectureID,
             }).done(function (response) {
                 if (response.statusCode === 200) {
                     alert(response.message);

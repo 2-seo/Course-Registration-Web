@@ -61,7 +61,7 @@
                             <a class="nav-link" href="/basket">장바구니</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/campus">강의조회</a>
+                            <a class="nav-link" href="/lecture">강의조회</a>
                         </li>
                         <sec:authorize access="hasRole('ADMIN')">
                             <li class="nav-item">

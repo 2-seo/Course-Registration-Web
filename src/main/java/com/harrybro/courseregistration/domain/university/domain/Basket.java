@@ -34,11 +34,11 @@ public class Basket {
     private List<Lecture> lectures;
 
     public void saveLecture(Lecture lecture) {
-        lectures.add(lecture);
+        this.lectures.add(lecture);
     }
 
     public void deleteLecture(Lecture lecture) {
-        lectures.remove(lecture);
+        this.lectures.remove(lecture);
     }
 
 }

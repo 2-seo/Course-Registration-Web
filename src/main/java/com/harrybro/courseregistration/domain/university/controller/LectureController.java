@@ -11,16 +11,16 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-public class CampusController {
+public class LectureController {
 
     private final LectureRepository lectureRepository;
 
-    @GetMapping("/campus")
+    @GetMapping("/lecture")
     public String getCampus(Model model) {
 
         List<Lecture> lectures = lectureRepository.findAll();
         model.addAttribute("lectures", lectures);
-        return "campus";
+        return "lecture";
     }
 
 }

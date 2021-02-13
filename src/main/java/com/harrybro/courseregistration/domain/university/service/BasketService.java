@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -23,7 +22,7 @@ public class BasketService {
     private final LectureRepository lectureRepository;
 
     @Transactional
-    public ResponseDto saveLectureInBasket(Long lectureID, PrincipalDetail principal) {
+    public ResponseDto saveLecture(Long lectureID, PrincipalDetail principal) {
         Account account = accountReposiitory.findByUsername(principal.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
         Lecture lecture = lectureRepository.findById(lectureID)
@@ -45,7 +44,7 @@ public class BasketService {
     }
 
     @Transactional
-    public ResponseDto deleteLectureInBasket(Long lectureID, PrincipalDetail principal) {
+    public ResponseDto deleteLecture(Long lectureID, PrincipalDetail principal) {
         Account account = accountReposiitory.findByUsername(principal.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
         Lecture lecture = lectureRepository.findById(lectureID)
