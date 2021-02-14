@@ -2,14 +2,12 @@ package com.harrybro.courseregistration.domain.university.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.harrybro.courseregistration.domain.account.domain.Account;
-import lombok.Builder;
+import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.exception.ConstraintViolationException;
 
 import javax.persistence.*;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 @NoArgsConstructor

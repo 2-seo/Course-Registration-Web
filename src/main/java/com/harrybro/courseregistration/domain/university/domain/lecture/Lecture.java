@@ -1,10 +1,12 @@
-package com.harrybro.courseregistration.domain.university.domain;
+package com.harrybro.courseregistration.domain.university.domain.lecture;
 
+import com.harrybro.courseregistration.domain.university.domain.Major;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @NoArgsConstructor
 @Getter
@@ -21,18 +23,23 @@ public class Lecture {
 
     private int credit;
 
-    private String time;
-
     @ManyToOne
     private Major major;
 
+    @Enumerated(EnumType.STRING)
+    private LectureDay day;
+
+    @Enumerated(EnumType.STRING)
+    private LecturePeriod period;
+
     @Builder
-    public Lecture(String name, String lecturer, int credit, String time, Major major) {
+    public Lecture(String name, String lecturer, int credit, Major major, LectureDay day, LecturePeriod period) {
         this.name = name;
         this.lecturer = lecturer;
         this.credit = credit;
-        this.time = time;
         this.major = major;
+        this.day = day;
+        this.period = period;
     }
 
 }

@@ -1,7 +1,7 @@
 package com.harrybro.courseregistration.domain.university.domain;
 
 import com.harrybro.courseregistration.domain.account.domain.Account;
-import lombok.Builder;
+import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -2,7 +2,7 @@ package com.harrybro.courseregistration.domain.university.service;
 
 import com.harrybro.courseregistration.domain.account.domain.Account;
 import com.harrybro.courseregistration.domain.account.repository.AccountReposiitory;
-import com.harrybro.courseregistration.domain.university.domain.Lecture;
+import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentSaveResponse;
 import com.harrybro.courseregistration.domain.university.repository.EnrollmentRepository;
 import com.harrybro.courseregistration.domain.university.repository.LectureRepository;

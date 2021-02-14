@@ -130,7 +130,7 @@ let enrollment = {
                 tableData_Name.innerText =response.data.name;
                 tableData_lecturer.innerText = response.data.lecturer;
                 tableData_credit.innerText = response.data.credit;
-                tableData_time.innerText = response.data.time;
+                tableData_time.innerText = response.data.day + ' ' + response.data.startTime + ' - ' + response.data.endTime;
                 deleteButton.innerText = '삭제';
                 deleteButton.classList.add('btn_enrollment_delete', 'btn', 'btn-danger');
                 deleteButton.addEventListener('click', function(event) {

@@ -25,7 +25,7 @@
                 <td>${lecture.name}</td>
                 <td>${lecture.lecturer}</td>
                 <td>${lecture.credit}</td>
-                <td>${lecture.time}</td>
+                <td>${lecture.day.getValue()} ${lecture.period.getStartTime()} - ${lecture.period.getEndTime()}</td>
                 <td>
                     <button type="button" class="btn_basket_delete btn btn-danger">
                         삭제
@@ -66,7 +66,7 @@
                 <td>${lecture.name}</td>
                 <td>${lecture.lecturer}</td>
                 <td>${lecture.credit}</td>
-                <td>${lecture.time}</td>
+                <td>${lecture.day.getValue()} ${lecture.period.getStartTime()} - ${lecture.period.getEndTime()}</td>
                 <td>
                     <button type="button" class="btn_enrollment_delete btn btn-danger">
                         삭제

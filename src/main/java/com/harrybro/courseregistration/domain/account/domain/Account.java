@@ -50,4 +50,5 @@ public class Account {
         this.enrollment = enrollment;
         this.role = role;
     }
+
 }

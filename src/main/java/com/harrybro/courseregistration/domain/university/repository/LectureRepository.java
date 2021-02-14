@@ -1,10 +1,9 @@
 package com.harrybro.courseregistration.domain.university.repository;
 
-import com.harrybro.courseregistration.domain.university.domain.Lecture;
+import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface LectureRepository extends JpaRepository<Lecture, Long> {
 

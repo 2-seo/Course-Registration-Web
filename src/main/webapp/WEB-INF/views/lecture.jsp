@@ -52,7 +52,7 @@
                 <td>${lecture.name}</td>
                 <td>${lecture.lecturer}</td>
                 <td>${lecture.credit}</td>
-                <td>${lecture.time}</td>
+                <td>${lecture.day.getValue()} ${lecture.period.getStartTime()} - ${lecture.period.getEndTime()}</td>
                 <td><button type="button" class="btn btn-primary" onclick="basket.save(${lecture.id})">담기</button> </td>
                 <td><button type="button" class="btn btn-primary" onclick="enrollment.save(${lecture.id})">신청</button> </td>
             </tr>
