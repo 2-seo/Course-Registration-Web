@@ -100,7 +100,6 @@
     const toast__area = document.querySelector('.toast_area');
     function fixNav() {
         if (window.scrollY >= navTop) {
-            console.log(navTop)
             toast__area.style.top = '6px';
         } else {
             toast__area.style.top = navTop + 10 - window.scrollY + 'px';

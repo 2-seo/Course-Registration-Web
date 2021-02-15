@@ -61,7 +61,7 @@ let enrollment = {
     save: function (lectureID) {
         $.ajax({
             type: "POST",
-            url: 'api/enrollment/' + lectureID,
+            url: '/api/enrollment/' + lectureID,
         }).done(function (response) {
             if (response.statusCode === 200) {
                 createMyToast(TOASTTYPE.SUCCESS, '수강신청', response.message, 5000);
@@ -83,7 +83,7 @@ let basket = {
     save: function (lectureID) {
         $.ajax({
             type: "POST",
-            url: 'api/basket/' + lectureID,
+            url: '/api/basket/' + lectureID,
         }).done(function (response) {
             if (response.statusCode === 200) {
                 createMyToast(TOASTTYPE.SUCCESS, '장바구니', response.message, 5000);
