@@ -24,6 +24,7 @@ public class BasketController {
     public String getBasket(Model model, @AuthenticationPrincipal PrincipalDetail principal)  {
         Account account = accountReposiitory.findByUsername(principal.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
+        model.addAttribute("credit", account.getCredit());
         model.addAttribute("basket_lectures", account.getBasket().getLectures());
         model.addAttribute("enrollment_lectures", account.getEnrollment().getLectures());
 

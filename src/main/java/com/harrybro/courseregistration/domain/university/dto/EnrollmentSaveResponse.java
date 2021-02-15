@@ -1,11 +1,9 @@
 package com.harrybro.courseregistration.domain.university.dto;
 
+import com.harrybro.courseregistration.domain.account.domain.Account;
 import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
-import com.harrybro.courseregistration.domain.university.domain.lecture.LectureDay;
-import com.harrybro.courseregistration.domain.university.domain.lecture.LecturePeriod;
 import lombok.Getter;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Getter
@@ -20,7 +18,9 @@ public class EnrollmentSaveResponse {
     private LocalTime startTime;
     private LocalTime endTime;
 
-    public EnrollmentSaveResponse(Lecture lecture) {
+    private int leftCredit;
+
+    public EnrollmentSaveResponse(Lecture lecture, Account account) {
         this.id = lecture.getId();
         this.name = lecture.getName();
         this.lecturer = lecture.getLecturer();
@@ -29,6 +29,8 @@ public class EnrollmentSaveResponse {
         this.day = lecture.getDay().getValue();
         this.startTime = lecture.getPeriod().getStartTime();
         this.endTime = lecture.getPeriod().getEndTime();
+
+        this.leftCredit = account.getCredit();
     }
 
 }

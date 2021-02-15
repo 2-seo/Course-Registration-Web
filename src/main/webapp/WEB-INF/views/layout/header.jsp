@@ -39,54 +39,54 @@
     <header>
         <nav class="navbar navbar-expand-md" style="background-color: #002968">
             <div class="container">
-            <!-- Brand -->
-            <div>
-                <a class="navbar-brand" href="/">
-                    <img src="/assets/images/mju-logo-white.png" alt="logo">
-                </a>
-            </div>
+                <!-- Brand -->
+                <div>
+                    <a class="navbar-brand" href="/">
+                        <img src="/assets/images/mju-logo-white.png" alt="logo">
+                    </a>
+                </div>
 
-            <!-- Toggler/collapsibe Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+                <!-- Toggler/collapsibe Button -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
-                <c:choose>
-                    <c:when test="${empty principal}">
-                        <ul class="navbar-nav text-center">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/auth/login">로그인</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/auth/create-account">회원가입</a>
-                            </li>
-                        </ul>
-                    </c:when>
-                    <c:otherwise>
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/basket">장바구니</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/lecture">강의조회</a>
-                            </li>
-                            <sec:authorize access="hasRole('ADMIN')">
+                <!-- Navbar links -->
+                <div class="collapse navbar-collapse justify-content-end" id="collapsibleNavbar">
+                    <c:choose>
+                        <c:when test="${empty principal}">
+                            <ul class="navbar-nav text-center">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">회원관리</a>
+                                    <a class="nav-link" href="/auth/login">로그인</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">강좌관리</a>
+                                    <a class="nav-link" href="/auth/create-account">회원가입</a>
                                 </li>
-                            </sec:authorize>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/logout">로그아웃</a>
-                            </li>
-                        </ul>
-                    </c:otherwise>
-                </c:choose>
-            </div>
+                            </ul>
+                        </c:when>
+                        <c:otherwise>
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/basket">장바구니</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/lecture">강의조회</a>
+                                </li>
+                                <sec:authorize access="hasRole('ADMIN')">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">회원관리</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">강좌관리</a>
+                                    </li>
+                                </sec:authorize>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/logout">로그아웃</a>
+                                </li>
+                            </ul>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
             </div>
         </nav>
 

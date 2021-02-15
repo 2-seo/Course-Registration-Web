@@ -150,6 +150,9 @@ let enrollment = {
                 tableRow.append(tableData_button);
                 enrollment_table_body.append(tableRow);
 
+                // 수강 남은 학점 표시
+                document.querySelector('.left_credit').innerText = response.data.leftCredit;
+
             } else {
                 createResultAlert(basketResultMessageBox, 'alert-danger', response.errorMessage);
             }
@@ -169,8 +172,9 @@ let enrollment = {
                 // 삭제할 노드 구한 후 부모노드를 구해서 삭제.
                 let removeTargetNode = event.parentNode.parentNode;
                 event.parentNode.parentNode.parentNode.removeChild(removeTargetNode);
+                // 수강 남은 학점 표시
+                document.querySelector('.left_credit').innerText = response.data.leftCredit;
             }
-            // location.href = '/basket';
         }).fail(function (error) {
             console.log(error);
         });

@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset-UTF-8" pageEncoding="utf-8" %>
 
 <%@ include file="layout/header.jsp" %>
-<main class="container" style="padding: 50px 0 250px">
+<main class="container" style="padding: 50px 0 150px">
+    <div class="d-flex justify-content-between">
+        <h2>장바구니</h2>
+        <p style="font-size: 20px">신청가능학점 <span class="left_credit" style="font-weight: bold; color: #002968">${credit}</span>학점</p>
+    </div>
     <%--  장바구니 테이블  --%>
-    <h2>장바구니</h2>
     <table class="table table-hover">
         <thead>
         <tr>

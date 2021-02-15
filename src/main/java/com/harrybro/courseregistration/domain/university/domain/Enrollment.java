@@ -25,13 +25,13 @@ public class Enrollment {
     @OneToMany
     private List<Lecture> lectures;
 
-    public void saveLecture(Lecture lecture) {
-
+    public boolean saveLecture(Lecture lecture) {
         boolean validation = validation(lecture);
         if (validation) {
             this.lectures.add(lecture);
+            return true;
         }
-
+        return false;
     }
 
     private boolean validation(Lecture lecture) {
@@ -42,7 +42,6 @@ public class Enrollment {
         }
 
         String lectureDay = lecture.getDay().getValue();
-
         for (Lecture savedLecture : this.lectures) {
             if (savedLecture.getDay().getValue().contains(lectureDay) || lectureDay.contains(savedLecture.getDay().getValue())) {
                 if (savedLecture.getPeriod().equals(lecture.getPeriod())) {
@@ -50,11 +49,13 @@ public class Enrollment {
                 }
             }
         }
+
         return true;
     }
 
-    public void deleteLecture(Lecture lecture) {
+    public boolean deleteLecture(Lecture lecture) {
         this.lectures.remove(lecture);
+        return true;
     }
 
 }

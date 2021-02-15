@@ -2,6 +2,7 @@ package com.harrybro.courseregistration.domain.account.domain;
 
 import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
+import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,8 @@ public class Account {
     @Column(nullable = false)
     private String password;
 
+    private int credit;
+
     @OneToOne
     private Basket basket;
 
@@ -49,6 +52,24 @@ public class Account {
         this.basket = basket;
         this.enrollment = enrollment;
         this.role = role;
+    }
+
+    public void enroll(Lecture lecture) {
+        if (this.credit >= lecture.getCredit()) {
+            boolean result = this.enrollment.saveLecture(lecture);
+            if (result) {
+                this.credit -= lecture.getCredit();
+            }
+        } else {
+            throw new IllegalArgumentException("수강 가능 학점이 부족합니다.");
+        }
+    }
+
+    public void cancelEnrollment(Lecture lecture) {
+        boolean result = this.enrollment.deleteLecture(lecture);
+        if (result) {
+            this.credit += lecture.getCredit();
+        }
     }
 
 }
