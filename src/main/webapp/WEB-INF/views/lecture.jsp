@@ -3,7 +3,7 @@
 <%@ include file="layout/header.jsp" %>
 
 <!-- toast -->
-<div class="toast_area" style="position: relative;">
+<div class="toast_area" style="position: fixed; top: 79px; right: 10px;">
     <div class="toast_container"></div>
 </div>
 <main class="container">
@@ -91,6 +91,22 @@
             }
         }
     });
+</script>
+
+<%--toast 스크롤 따라가게 하기--%>
+<script>
+    const nav = document.querySelector('.navbar');
+    const navTop = nav.offsetHeight;
+    const toast__area = document.querySelector('.toast_area');
+    function fixNav() {
+        if (window.scrollY >= navTop) {
+            console.log(navTop)
+            toast__area.style.top = '6px';
+        } else {
+            toast__area.style.top = navTop + 10 - window.scrollY + 'px';
+        }
+    }
+    window.addEventListener('scroll', fixNav);
 </script>
 
 <%@ include file="layout/footer.jsp"%>
