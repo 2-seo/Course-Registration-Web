@@ -31,13 +31,6 @@ public class EnrollmentService {
         Lecture lecture = lectureRepository.findById(lectureID)
                 .orElseThrow(() -> new IllegalArgumentException("해당 강의가 존재하지 않습니다."));
 
-        List<Lecture> lectures = account.getEnrollment().getLectures();
-        for (Lecture l : lectures) {
-            if (l.equals(lecture)) {
-                throw new IllegalArgumentException("이미 수강 신청된 강의입니다.");
-            }
-        }
-
         account.getEnrollment().saveLecture(lecture);
 
         return ResponseDto.<EnrollmentSaveResponse>builder()
