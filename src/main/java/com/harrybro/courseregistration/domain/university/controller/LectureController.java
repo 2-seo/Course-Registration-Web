@@ -40,4 +40,4 @@ public class LectureController {
         return "lecture";
     }
 
-}
+} 
