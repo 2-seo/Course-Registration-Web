@@ -1,6 +1,6 @@
 package com.harrybro.courseregistration.global.error;
 
-import com.harrybro.courseregistration.domain.account.exception.UsernameDuplicateException;
+import com.harrybro.courseregistration.domain.user.exception.UsernameDuplicateException;
 import com.harrybro.courseregistration.global.dto.ResponseDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

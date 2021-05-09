@@ -1,4 +1,4 @@
-package com.harrybro.courseregistration.domain.account.exception;
+package com.harrybro.courseregistration.domain.user.exception;
 
 public class UsernameDuplicateException extends IllegalArgumentException {
 

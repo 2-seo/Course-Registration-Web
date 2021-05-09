@@ -1,4 +1,4 @@
-package com.harrybro.courseregistration.domain.account.domain;
+package com.harrybro.courseregistration.domain.user.domain;
 
 import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
@@ -15,7 +15,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Getter
 @Entity
-public class Account {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,7 +46,7 @@ public class Account {
     private Timestamp updatedDate;
 
     @Builder
-    public Account(String username, String password, Basket basket, Enrollment enrollment, RoleType role) {
+    public User(String username, String password, Basket basket, Enrollment enrollment, RoleType role) {
         this.username = username;
         this.password = password;
         this.basket = basket;

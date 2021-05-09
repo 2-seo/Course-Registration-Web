@@ -22,7 +22,8 @@
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">[공지사항] 21년도 1학기 추가 휴,복학 신청 안내</h5>
-                        <p class="card-text">2021학년도 1학기 개강전 추가 휴ㆍ복학 신청 기간을 다음과 같이 안내하오니 휴ㆍ복학을 희망하는 학생께서는 기간내 신청하여 주시기 바랍니다.</p>
+                        <p class="card-text">2021학년도 1학기 개강전 추가 휴ㆍ복학 신청 기간을 다음과 같이 안내하오니 휴ㆍ복학을 희망하는 학생께서는 기간내 신청하여 주시기
+                            바랍니다.</p>
                         <a href="#">more...</a>
                     </div>
                 </div>
@@ -55,4 +56,4 @@
     </div>
 </main>
 
-<%@ include file="layout/footer.jsp"%>
+<%@ include file="layout/footer.jsp" %>

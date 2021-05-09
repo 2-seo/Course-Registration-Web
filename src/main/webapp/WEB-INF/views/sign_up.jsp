@@ -6,14 +6,14 @@
     <div class="row form-group">
         <div class="col-md-6 offset-md-3 ">
             <div class="card">
-                <div class="card-header">로그인</div>
+                <div class="card-header">회원가입</div>
                 <div class="card-body">
-                    <form action="/auth/login" method="post">
-                        <input type="text" name="username" id="username" class="form-control mb-2"
-                               placeholder="Username" required>
+                    <form>
+                        <input type="text" name="username" id="username" class="form-control mb-2" placeholder="name"
+                               required>
                         <input type="password" name="password" id="password" class="form-control mb-3"
-                               placeholder="Password" required>
-                        <button type="submit" id="create-user" class="btn btn-primary btn-block">로그인</button>
+                               placeholder="password" required>
+                        <button type="button" id="btn-sign-up" class="btn btn-primary btn-block">회원가입</button>
                     </form>
                 </div>
             </div>

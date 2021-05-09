@@ -13,7 +13,7 @@ public enum LectureDay {
     THURSDAY("목"),
     FRIDAY("금"),
     MONDAY_AND_WEDNESDAY("월,수"),
-    TUESDAY_ANDTHURSDAY("화,목");
+    TUESDAY_AND_THURSDAY("화,목");
 
 
     private String value;

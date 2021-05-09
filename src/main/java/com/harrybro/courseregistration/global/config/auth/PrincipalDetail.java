@@ -1,6 +1,6 @@
 package com.harrybro.courseregistration.global.config.auth;
 
-import com.harrybro.courseregistration.domain.account.domain.Account;
+import com.harrybro.courseregistration.domain.user.domain.User;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,27 +11,27 @@ import java.util.Collection;
 @ToString
 public class PrincipalDetail implements UserDetails {
 
-    private Account account;
+    private User user;
 
-    public PrincipalDetail(Account account) {
-        this.account = account;
+    public PrincipalDetail(User user) {
+        this.user = user;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> collection = new ArrayList<>();
-        collection.add(() -> String.valueOf(account.getRole()));
+        collection.add(() -> String.valueOf(user.getRole()));
         return collection;
     }
 
     @Override
     public String getPassword() {
-        return account.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return account.getUsername();
+        return user.getUsername();
     }
 
     @Override

@@ -1,9 +1,9 @@
-package com.harrybro.courseregistration.domain.account.service;
+package com.harrybro.courseregistration.domain.user.service;
 
-import com.harrybro.courseregistration.domain.account.domain.Account;
-import com.harrybro.courseregistration.domain.account.dto.CreateAccountRequest;
-import com.harrybro.courseregistration.domain.account.exception.UsernameDuplicateException;
-import com.harrybro.courseregistration.domain.account.repository.AccountReposiitory;
+import com.harrybro.courseregistration.domain.user.domain.User;
+import com.harrybro.courseregistration.domain.user.dto.SignUpRequest;
+import com.harrybro.courseregistration.domain.user.exception.UsernameDuplicateException;
+import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
 import com.harrybro.courseregistration.domain.university.repository.BasketRepository;
@@ -17,31 +17,27 @@ import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
-public class AccountService {
+public class UserService {
 
-    private final AccountReposiitory accountReposiitory;
+    private final UserRepository userRepository;
     private final BasketRepository basketRepository;
     private final EnrollmentRepository enrollmentRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Transactional
-    public ResponseDto<Object> createAccount(CreateAccountRequest dto) {
-
-        if (accountReposiitory.existsByUsername(dto.getUsername())) {
-            throw new UsernameDuplicateException(dto.getUsername());
-        }
+    public ResponseDto<Object> create(SignUpRequest dto) {
+        if (userRepository.existsByUsername(dto.getUsername())) throw new UsernameDuplicateException(dto.getUsername());
 
         Basket basket = basketRepository.save(new Basket());
         Enrollment enrollment = enrollmentRepository.save(new Enrollment());
-        Account account = accountReposiitory.save(dto.toEntity(passwordEncoder, basket, enrollment));
-        basket.setAccount(account);
-        enrollment.setAccount(account);
+        User user = userRepository.save(dto.toEntity(passwordEncoder, basket, enrollment));
+        basket.setUser(user);
+        enrollment.setUser(user);
 
         return ResponseDto.builder()
                 .status(HttpStatus.OK)
                 .message("회원가입이 완료되었습니다.")
                 .build();
-
     }
 
 }

@@ -16,13 +16,14 @@ public class EnrollmentApiController {
     private final EnrollmentService enrollmentService;
 
     @PostMapping("/enrollment/{id}")
-    public ResponseDto<EnrollmentSaveResponse> save(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
-        return enrollmentService.save(lectureID, principal);
+    public ResponseDto<EnrollmentSaveResponse> save(@AuthenticationPrincipal PrincipalDetail principal,
+                                                    @PathVariable("id") Long lectureId) {
+        return enrollmentService.save(lectureId, principal);
     }
 
     @DeleteMapping("/enrollment/{id}")
-    public ResponseDto delete(@PathVariable("id") Long lectureID, @AuthenticationPrincipal PrincipalDetail principal) {
-        return enrollmentService.delete(lectureID, principal);
+    public ResponseDto<?> delete(@AuthenticationPrincipal PrincipalDetail principal, @PathVariable("id") Long lectureId) {
+        return enrollmentService.delete(lectureId, principal);
     }
 
 }

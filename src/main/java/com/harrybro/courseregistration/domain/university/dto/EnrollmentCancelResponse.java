@@ -1,6 +1,6 @@
 package com.harrybro.courseregistration.domain.university.dto;
 
-import com.harrybro.courseregistration.domain.account.domain.Account;
+import com.harrybro.courseregistration.domain.user.domain.User;
 import lombok.Getter;
 
 @Getter
@@ -8,8 +8,8 @@ public class EnrollmentCancelResponse {
 
     private int leftCredit;
 
-    public EnrollmentCancelResponse(Account account) {
-        this.leftCredit = account.getCredit();
+    public EnrollmentCancelResponse(User user) {
+        this.leftCredit = user.getCredit();
     }
 
 }

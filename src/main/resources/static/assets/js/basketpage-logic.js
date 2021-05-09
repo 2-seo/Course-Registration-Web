@@ -2,6 +2,7 @@
 let resultCount = 0;
 let basketResultMessageBox = document.querySelector('.basket_result_message_box');
 let enrollmentResultMessageBox = document.querySelector('.enrollment_result_message_box');
+
 function createResultAlert(target, result, message) {
     resultCount += 1;
     let specificClass = 'alert-' + resultCount;
@@ -71,7 +72,7 @@ let toBeCreatedList = [
 toBeCreatedList.forEach((item) => {
     let btns = document.querySelectorAll(item.button)
     btns.forEach(btn => {
-        btn.addEventListener('click', function(event) {
+        btn.addEventListener('click', function (event) {
             createModal(item.title, item.content, event, item.logic)
         })
     })
@@ -127,13 +128,13 @@ let enrollment = {
 
                 tableData_id.innerText = response.data.id;
                 tableData_major.innerText = response.data.major;
-                tableData_Name.innerText =response.data.name;
+                tableData_Name.innerText = response.data.name;
                 tableData_lecturer.innerText = response.data.lecturer;
                 tableData_credit.innerText = response.data.credit;
                 tableData_time.innerText = response.data.day + ' ' + response.data.startTime + ' - ' + response.data.endTime;
                 deleteButton.innerText = '삭제';
                 deleteButton.classList.add('btn_enrollment_delete', 'btn', 'btn-danger');
-                deleteButton.addEventListener('click', function(event) {
+                deleteButton.addEventListener('click', function (event) {
                     createModal('수강신청', '해당 과목을 수강 취소하시겠습니까?', event, MODALLOGICTYPE.ENROLLMENT.delete)
                 });
                 hiddenInput.setAttribute('type', 'hidden');

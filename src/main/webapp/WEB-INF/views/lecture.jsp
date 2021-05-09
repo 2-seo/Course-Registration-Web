@@ -11,7 +11,8 @@
         <%--    검생창    --%>
         <div class="d-flex box_search">
             <div class="dropdown px-2">
-                <button type="button" class="search_option btn dropdown-toggle align-top shadow-none" data-toggle="dropdown">
+                <button type="button" class="search_option btn dropdown-toggle align-top shadow-none"
+                        data-toggle="dropdown">
                     전체
                 </button>
                 <div class="dropdown-menu">
@@ -53,8 +54,12 @@
                 <td>${lecture.lecturer}</td>
                 <td>${lecture.credit}</td>
                 <td>${lecture.day.getValue()} ${lecture.period.getStartTime()} - ${lecture.period.getEndTime()}</td>
-                <td><button type="button" class="btn btn-primary" onclick="basket.save(${lecture.id})">담기</button> </td>
-                <td><button type="button" class="btn btn-primary" onclick="enrollment.save(${lecture.id})">신청</button> </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="basket.save(${lecture.id})">담기</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" onclick="enrollment.save(${lecture.id})">신청</button>
+                </td>
             </tr>
         </c:forEach>
         </tbody>
@@ -87,7 +92,6 @@
                 location.href = '/lecture/search?name=' + search_word;
             } else if (search_option === '교수명') {
                 location.href = '/lecture/search?lecturer=' + search_word;
-
             }
         }
     });
@@ -98,6 +102,7 @@
     const nav = document.querySelector('.navbar');
     const navTop = nav.offsetHeight;
     const toast__area = document.querySelector('.toast_area');
+
     function fixNav() {
         if (window.scrollY >= navTop) {
             toast__area.style.top = '6px';
@@ -105,7 +110,8 @@
             toast__area.style.top = navTop + 10 - window.scrollY + 'px';
         }
     }
+
     window.addEventListener('scroll', fixNav);
 </script>
 
-<%@ include file="layout/footer.jsp"%>
+<%@ include file="layout/footer.jsp" %>

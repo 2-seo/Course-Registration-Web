@@ -1,7 +1,7 @@
 let index = {
     init: function () {
-        $('#btn-create-account').on('click', () => {
-            this.createAccount();
+        $('#btn-sign-up').on('click', () => {
+            this.signUp();
         });
 
         $('#btn-login').on('click', () => {
@@ -13,15 +13,14 @@ let index = {
         });
     },
 
-    createAccount: function () {
+    signUp: function () {
         let data = {
             username: $('#username').val(),
             password: $('#password').val()
         }
-
         $.ajax({
             type: "POST",
-            url: "/auth/create-account",
+            url: "/auth/sign-up",
             data: JSON.stringify(data),
             contentType: "application/json; charset=utf-8",
             dataType: "json"

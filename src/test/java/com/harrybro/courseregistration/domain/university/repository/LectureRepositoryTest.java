@@ -13,8 +13,10 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class LectureRepositoryTest {
 
-    @Autowired private LectureRepository lectureRepository;
-    @Autowired private MajorRepository majorRepository;
+    @Autowired
+    private LectureRepository lectureRepository;
+    @Autowired
+    private MajorRepository majorRepository;
 
     @Test
     void findByNameContaining() {

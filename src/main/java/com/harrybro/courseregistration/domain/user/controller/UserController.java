@@ -1,19 +1,19 @@
-package com.harrybro.courseregistration.domain.account.controller;
+package com.harrybro.courseregistration.domain.user.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class AccountController {
+public class UserController {
 
     @GetMapping("/auth/login")
     public String loginForm() {
         return "login";
     }
 
-    @GetMapping("/auth/create-account")
+    @GetMapping("/auth/sign-up")
     public String createAccountForm() {
-        return "create_account";
+        return "sign_up";
     }
 
 }

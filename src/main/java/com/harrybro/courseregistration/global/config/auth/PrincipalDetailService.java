@@ -1,7 +1,7 @@
 package com.harrybro.courseregistration.global.config.auth;
 
-import com.harrybro.courseregistration.domain.account.domain.Account;
-import com.harrybro.courseregistration.domain.account.repository.AccountReposiitory;
+import com.harrybro.courseregistration.domain.user.domain.User;
+import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,11 +12,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class PrincipalDetailService implements UserDetailsService {
 
-    private final AccountReposiitory accountReposiitory;
+    private final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Account principal = accountReposiitory.findByUsername(username)
+        User principal = userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException(username));
 
         return new PrincipalDetail(principal);

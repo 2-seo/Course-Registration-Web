@@ -35,17 +35,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/", "/auth/**", "/assets/**")
-                    .permitAll()
-                    .antMatchers("/board/saveForm'").hasAnyRole("USER", "ADMIN")
-                    .anyRequest()
-                    .authenticated()
+                .antMatchers("/", "/auth/**", "/assets/**")
+                .permitAll()
+                .antMatchers("/board/saveForm'").hasAnyRole("USER", "ADMIN")
+                .anyRequest()
+                .authenticated()
                 .and()
-                    .formLogin()
-                    .loginPage("/auth/login")
-                    .loginProcessingUrl("/auth/login")
-                    .defaultSuccessUrl("/");
-
+                .formLogin()
+                .loginPage("/auth/login")
+                .loginProcessingUrl("/auth/login")
+                .defaultSuccessUrl("/");
     }
 
 }

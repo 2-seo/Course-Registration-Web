@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.util.List;
 
-@NoArgsConstructor
 @Getter
+@NoArgsConstructor
 @Entity
 public class College {
 

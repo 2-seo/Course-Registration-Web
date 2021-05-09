@@ -1,6 +1,6 @@
 package com.harrybro.courseregistration.domain.university.domain;
 
-import com.harrybro.courseregistration.domain.account.domain.Account;
+import com.harrybro.courseregistration.domain.user.domain.User;
 import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +20,7 @@ public class Enrollment {
 
     @Setter
     @OneToOne
-    private Account account;
+    private User user;
 
     @OneToMany
     private List<Lecture> lectures;

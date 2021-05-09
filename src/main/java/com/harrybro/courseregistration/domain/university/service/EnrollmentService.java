@@ -1,7 +1,9 @@
 package com.harrybro.courseregistration.domain.university.service;
 
-import com.harrybro.courseregistration.domain.account.domain.Account;
-import com.harrybro.courseregistration.domain.account.repository.AccountReposiitory;
+import com.harrybro.courseregistration.domain.university.dto.UserAndLectureDto;
+import com.harrybro.courseregistration.domain.university.util.UserAndLectureValidator;
+import com.harrybro.courseregistration.domain.user.domain.User;
+import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentCancelResponse;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentSaveResponse;
@@ -18,38 +20,37 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class EnrollmentService {
 
-    private final AccountReposiitory accountReposiitory;
+    private final UserRepository userRepository;
     private final LectureRepository lectureRepository;
+    private final UserAndLectureValidator userAndLectureValidator;
 
     @Transactional
-    public ResponseDto<EnrollmentSaveResponse> save(Long lectureID, PrincipalDetail principal) {
-        Account account = accountReposiitory.findByUsername(principal.getUsername())
-                .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
-        Lecture lecture = lectureRepository.findById(lectureID)
-                .orElseThrow(() -> new IllegalArgumentException("해당 강의가 존재하지 않습니다."));
+    public ResponseDto<EnrollmentSaveResponse> save(Long lectureId, PrincipalDetail principal) {
+        UserAndLectureDto userAndLectureDto = userAndLectureValidator.validate(principal, lectureId);
+        User user = userAndLectureDto.getUser();
+        Lecture lecture = userAndLectureDto.getLecture();
 
-        account.enroll(lecture);
+        user.enroll(lecture);
 
         return ResponseDto.<EnrollmentSaveResponse>builder()
                 .status(HttpStatus.OK)
                 .message("선택한 과목을 수강신청 완료하였습니다.")
-                .data(new EnrollmentSaveResponse(lecture, account))
+                .data(new EnrollmentSaveResponse(user, lecture))
                 .build();
     }
 
     @Transactional
-    public ResponseDto delete(Long lectureID, PrincipalDetail principal) {
-        Account account = accountReposiitory.findByUsername(principal.getUsername())
-                .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
-        Lecture lecture = lectureRepository.findById(lectureID)
-                .orElseThrow(() -> new IllegalArgumentException("해당 강의가 존재하지 않습니다."));
+    public ResponseDto<?> delete(Long lectureId, PrincipalDetail principal) {
+        UserAndLectureDto userAndLectureDto = userAndLectureValidator.validate(principal, lectureId);
+        User user = userAndLectureDto.getUser();
+        Lecture lecture = userAndLectureDto.getLecture();
 
-        account.cancelEnrollment(lecture);
+        user.cancelEnrollment(lecture);
 
         return ResponseDto.builder()
                 .status(HttpStatus.OK)
                 .message("선택한 과목을 수강 취소하였습니다.")
-                .data(new EnrollmentCancelResponse(account))
+                .data(new EnrollmentCancelResponse(user))
                 .build();
     }
 

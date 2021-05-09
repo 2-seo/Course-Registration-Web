@@ -1,7 +1,7 @@
 package com.harrybro.courseregistration.domain.university.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.harrybro.courseregistration.domain.account.domain.Account;
+import com.harrybro.courseregistration.domain.user.domain.User;
 import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +24,7 @@ public class Basket {
 
     @Setter
     @OneToOne
-    private Account account;
+    private User user;
 
     @JsonIgnoreProperties({"major"})
     @OrderBy("id desc ")

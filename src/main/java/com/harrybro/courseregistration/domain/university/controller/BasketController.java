@@ -1,9 +1,7 @@
 package com.harrybro.courseregistration.domain.university.controller;
 
-import com.harrybro.courseregistration.domain.account.domain.Account;
-import com.harrybro.courseregistration.domain.account.repository.AccountReposiitory;
-import com.harrybro.courseregistration.domain.university.repository.BasketRepository;
-import com.harrybro.courseregistration.domain.university.repository.LectureRepository;
+import com.harrybro.courseregistration.domain.user.domain.User;
+import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import com.harrybro.courseregistration.global.config.auth.PrincipalDetail;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,16 +15,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class BasketController {
 
-    private final AccountReposiitory accountReposiitory;
+    private final UserRepository userRepository;
 
     @Transactional(readOnly = true)
     @GetMapping("/basket")
-    public String getBasket(Model model, @AuthenticationPrincipal PrincipalDetail principal)  {
-        Account account = accountReposiitory.findByUsername(principal.getUsername())
+    public String getBasket(Model model, @AuthenticationPrincipal PrincipalDetail principal) {
+        User user = userRepository.findByUsername(principal.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
-        model.addAttribute("credit", account.getCredit());
-        model.addAttribute("basket_lectures", account.getBasket().getLectures());
-        model.addAttribute("enrollment_lectures", account.getEnrollment().getLectures());
+        model.addAttribute("credit", user.getCredit());
+        model.addAttribute("basket_lectures", user.getBasket().getLectures());
+        model.addAttribute("enrollment_lectures", user.getEnrollment().getLectures());
 
         return "basket";
     }

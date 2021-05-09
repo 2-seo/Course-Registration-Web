@@ -4,6 +4,7 @@ let TOASTTYPE = {
     'SUCCESS': 'text-primary',
     'FAIL': 'text-danger'
 }
+
 function createMyToast(type, title, content, time) {
     toastCount += 1;
     let specificClass = 'myToast' + toastCount;
