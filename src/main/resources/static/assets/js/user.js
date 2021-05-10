@@ -25,14 +25,10 @@ let index = {
             contentType: "application/json; charset=utf-8",
             dataType: "json"
         }).done(function (response) {
-            if (response.statusCode === 200) {
-                alert(response.message);
-                location.href = "/login"
-            } else {
-                alert(response.errorMessage);
-            }
+            alert(response.message);
+            location.href = "/login"
         }).fail(function (error) {
-            alert(error.responseJSON.message);
+            alert(error.responseJSON.errorMessage);
         });
     },
 
@@ -56,8 +52,7 @@ let index = {
             location.href = '/';
             console.log(response);
         }).fail(function (error) {
-            console.log(error);
-            // alert(JSON.stringify(error))
+            console.log(error.responseJSON.errorMessage);
         });
     },
 }

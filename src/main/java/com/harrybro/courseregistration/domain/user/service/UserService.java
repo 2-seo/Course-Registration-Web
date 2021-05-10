@@ -25,7 +25,7 @@ public class UserService {
     private final BCryptPasswordEncoder passwordEncoder;
 
     @Transactional
-    public ResponseDto<Object> create(SignUpRequest dto) {
+    public ResponseDto<?> create(SignUpRequest dto) {
         if (userRepository.existsByUsername(dto.getUsername())) throw new UsernameDuplicateException(dto.getUsername());
 
         Basket basket = basketRepository.save(new Basket());

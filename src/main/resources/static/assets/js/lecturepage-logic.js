@@ -64,15 +64,9 @@ let enrollment = {
             type: "POST",
             url: '/api/enrollment/' + lectureID,
         }).done(function (response) {
-            if (response.statusCode === 200) {
-                createMyToast(TOASTTYPE.SUCCESS, '수강신청', response.message, 5000);
-
-            } else {
-                createMyToast(TOASTTYPE.FAIL, '수강신청', response.errorMessage, 5000);
-
-            }
+            createMyToast(TOASTTYPE.SUCCESS, '수강신청', response.message, 5000);
         }).fail(function (error) {
-            console.log(error);
+            createMyToast(TOASTTYPE.FAIL, '수강신청', error.responseJSON.errorMessage, 5000);
         });
     },
 
@@ -86,15 +80,9 @@ let basket = {
             type: "POST",
             url: '/api/basket/' + lectureID,
         }).done(function (response) {
-            if (response.statusCode === 200) {
-                createMyToast(TOASTTYPE.SUCCESS, '장바구니', response.message, 5000);
-
-            } else {
-                createMyToast(TOASTTYPE.FAIL, '장바구니', response.errorMessage, 5000);
-
-            }
+            createMyToast(TOASTTYPE.SUCCESS, '장바구니', response.message, 5000);
         }).fail(function (error) {
-            console.log(error);
+            createMyToast(TOASTTYPE.FAIL, '장바구니', error.responseJSON.errorMessage, 5000);
         });
     },
 

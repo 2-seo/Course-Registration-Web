@@ -22,7 +22,8 @@ public class EnrollmentApiController {
     }
 
     @DeleteMapping("/enrollment/{id}")
-    public ResponseDto<?> delete(@AuthenticationPrincipal PrincipalDetail principal, @PathVariable("id") Long lectureId) {
+    public ResponseDto<?> delete(@AuthenticationPrincipal PrincipalDetail principal,
+                                 @PathVariable("id") Long lectureId) {
         return enrollmentService.delete(lectureId, principal);
     }
 

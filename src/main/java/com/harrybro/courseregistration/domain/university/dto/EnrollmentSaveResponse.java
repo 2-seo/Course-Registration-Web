@@ -2,11 +2,14 @@ package com.harrybro.courseregistration.domain.university.dto;
 
 import com.harrybro.courseregistration.domain.user.domain.User;
 import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
-import lombok.Getter;
+import lombok.*;
 
 import java.time.LocalTime;
 
 @Getter
+@Builder(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EnrollmentSaveResponse {
 
     private Long id;
@@ -19,16 +22,17 @@ public class EnrollmentSaveResponse {
     private LocalTime endTime;
     private int leftCredit;
 
-    public EnrollmentSaveResponse(User user, Lecture lecture) {
-        this.id = lecture.getId();
-        this.name = lecture.getName();
-        this.lecturer = lecture.getLecturer();
-        this.credit = lecture.getCredit();
-        this.major = lecture.getMajor().getName();
-        this.day = lecture.getDay().getValue();
-        this.startTime = lecture.getPeriod().getStartTime();
-        this.endTime = lecture.getPeriod().getEndTime();
-        this.leftCredit = user.getCredit();
+    public static EnrollmentSaveResponse of(User user, Lecture lecture) {
+        return EnrollmentSaveResponse.builder()
+                .id(lecture.getId())
+                .name(lecture.getName())
+                .lecturer(lecture.getLecturer())
+                .credit(lecture.getCredit())
+                .major(lecture.getMajor().getName())
+                .day(lecture.getDay().getValue())
+                .startTime(lecture.getPeriod().getStartTime())
+                .endTime(lecture.getPeriod().getEndTime())
+                .build();
     }
 
 }

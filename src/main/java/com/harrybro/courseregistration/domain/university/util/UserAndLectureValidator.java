@@ -23,7 +23,6 @@ public class UserAndLectureValidator {
                 .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
         Lecture lecture = lectureRepository.findById(lectureId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 강의가 존재하지 않습니다."));
-        
         return UserAndLectureDto.of(user, lecture);
     }
 

@@ -25,7 +25,8 @@ public class LectureController {
     }
 
     @GetMapping("/lecture/search")
-    public String getLectureContaining(@RequestParam(required = false) String name, @RequestParam(required = false) String lecturer, Model model) {
+    public String getLectureContaining(@RequestParam(required = false) String name,
+                                       @RequestParam(required = false) String lecturer, Model model) {
         List<Lecture> lectures = null;
         if (name == null && lecturer == null) {
             return "redirect:/lecture";
