@@ -61,7 +61,7 @@ public class User {
                 this.credit -= lecture.getCredit();
             }
         } else {
-            throw new IllegalArgumentException("수강 가능 학점이 부족합니다.");
+            throw new IllegalArgumentException("수강 가능 학점이 부족합니다");
         }
     }
 
