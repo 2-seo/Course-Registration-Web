@@ -17,7 +17,7 @@
                 </button>
                 <div class="dropdown-menu">
                     <div class="dropdown-item">전체</div>
-                    <div class="dropdown-item">교과목명</div>
+                    <div class="dropdown-item">강좌명</div>
                     <div class="dropdown-item">교수명</div>
                 </div>
             </div>
@@ -87,11 +87,13 @@
             let search_option = document.querySelector('.search_option').innerText.trim();
             let search_word = search_input.value;
             if (search_option === '전체') {
-                location.href = '/lecture/search?name=' + search_word + '&lecturer=' + search_word;
-            } else if (search_option === '교과목명') {
-                location.href = '/lecture/search?name=' + search_word;
+                // location.href = '/lecture/search?name=' + search_word + '&lecturer=' + search_word;
+                location.href = '/lecture/search?searchBy=LECTURER_AND_NAME&searchMessage=' + search_word;
+            } else if (search_option === '강좌명') {
+                // location.href = '/lecture/search?name=' + search_word;
+                location.href = '/lecture/search?searchBy=NAME&searchMessage=' + search_word;
             } else if (search_option === '교수명') {
-                location.href = '/lecture/search?lecturer=' + search_word;
+                location.href = '/lecture/search?searchBy=LECTURER&searchMessage=' + search_word;
             }
         }
     });

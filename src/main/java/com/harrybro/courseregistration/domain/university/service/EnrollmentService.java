@@ -1,18 +1,17 @@
 package com.harrybro.courseregistration.domain.university.service;
 
-import com.harrybro.courseregistration.domain.university.dto.UserAndLectureDto;
-import com.harrybro.courseregistration.domain.university.util.UserAndLectureValidator;
-import com.harrybro.courseregistration.domain.user.domain.User;
-import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentCancelResponse;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentSaveResponse;
+import com.harrybro.courseregistration.domain.university.dto.UserAndLectureDto;
 import com.harrybro.courseregistration.domain.university.repository.LectureRepository;
+import com.harrybro.courseregistration.domain.university.util.UserAndLectureValidator;
+import com.harrybro.courseregistration.domain.user.domain.User;
+import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import com.harrybro.courseregistration.global.config.auth.PrincipalDetail;
 import com.harrybro.courseregistration.global.dto.ResponseDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
