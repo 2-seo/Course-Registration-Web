@@ -2,11 +2,11 @@ package com.harrybro.courseregistration.domain.user.service;
 
 import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
-import com.harrybro.courseregistration.domain.university.mail.domain.EmailAuthCode;
-import com.harrybro.courseregistration.domain.university.mail.domain.EmailSubject;
-import com.harrybro.courseregistration.domain.university.mail.repository.EmailAuthCodeRepository;
-import com.harrybro.courseregistration.domain.university.mail.util.EmailAuthCodeGenerator;
-import com.harrybro.courseregistration.domain.university.mail.util.EmailUtil;
+import com.harrybro.courseregistration.domain.mail.domain.EmailAuthCode;
+import com.harrybro.courseregistration.domain.mail.domain.EmailSubject;
+import com.harrybro.courseregistration.domain.mail.repository.EmailAuthCodeRepository;
+import com.harrybro.courseregistration.domain.mail.util.EmailAuthCodeGenerator;
+import com.harrybro.courseregistration.domain.mail.util.EmailUtil;
 import com.harrybro.courseregistration.domain.university.repository.BasketRepository;
 import com.harrybro.courseregistration.domain.university.repository.EnrollmentRepository;
 import com.harrybro.courseregistration.domain.user.constant.UserResponseMessage;
@@ -42,9 +42,9 @@ public class UserService {
 
     public ResponseDto<?> create(SignUpRequest dto) {
         if (emailAuthCodeRepository.existsByEmail(dto.getEmail()))
-            throw new EmailNotVerifiedException(UserExceptionMessage.EMAIL_NOT_VERIFIED_EXCEPTION_MESSAGE);
+            throw new EmailNotVerifiedException(UserExceptionMessage.EMAIL_NOT_VERIFIED_EXCEPTION);
         if (userRepository.existsByEmail(dto.getEmail()))
-            throw new EmailDuplicateException(UserExceptionMessage.EMAIL_DUPLICATE_EXCEPTION_MESSAGE);
+            throw new EmailDuplicateException(UserExceptionMessage.EMAIL_DUPLICATE_EXCEPTION);
 
         EmailAuthCodeGenerator authCodeGenerator = new EmailAuthCodeGenerator();
         String authCode = authCodeGenerator.generateAuthCode();

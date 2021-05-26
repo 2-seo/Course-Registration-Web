@@ -1,6 +1,6 @@
-package com.harrybro.courseregistration.domain.university.mail.api;
+package com.harrybro.courseregistration.domain.mail.api;
 
-import com.harrybro.courseregistration.domain.university.mail.service.EmailAuthService;
+import com.harrybro.courseregistration.domain.mail.service.EmailAuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

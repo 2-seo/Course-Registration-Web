@@ -1,7 +1,7 @@
-package com.harrybro.courseregistration.domain.university.mail.service;
+package com.harrybro.courseregistration.domain.mail.service;
 
-import com.harrybro.courseregistration.domain.university.mail.domain.EmailAuthCode;
-import com.harrybro.courseregistration.domain.university.mail.repository.EmailAuthCodeRepository;
+import com.harrybro.courseregistration.domain.mail.domain.EmailAuthCode;
+import com.harrybro.courseregistration.domain.mail.repository.EmailAuthCodeRepository;
 import com.harrybro.courseregistration.domain.user.domain.User;
 import com.harrybro.courseregistration.domain.user.domain.UserStateType;
 import com.harrybro.courseregistration.domain.user.exception.EmailNotFoundException;
@@ -22,10 +22,10 @@ public class EmailAuthService {
     @Transactional
     public void emailValidate(String email, String authCode) {
         User user = userRepository.findByEmail(email)
-                .orElseThrow(() -> new EmailNotFoundException(UserExceptionMessage.EMAIL_NOT_FOUND_EXCEPTION_MESSAGE));
+                .orElseThrow(() -> new EmailNotFoundException(UserExceptionMessage.EMAIL_NOT_FOUND_EXCEPTION));
         if (user.getState().equals(UserStateType.NORMAL)) return;
         EmailAuthCode emailAuthCode = emailAuthCodeRepository.findByEmail(email)
-                .orElseThrow(() -> new EmailNotFoundException(UserExceptionMessage.EMAIL_NOT_FOUND_EXCEPTION_MESSAGE));
+                .orElseThrow(() -> new EmailNotFoundException(UserExceptionMessage.EMAIL_NOT_FOUND_EXCEPTION));
 
         emailAuthCode.validateCode(authCode);
         user.emailVerificationCompleted();

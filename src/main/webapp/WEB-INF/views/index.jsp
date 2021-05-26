@@ -4,14 +4,14 @@
 
 <div class="main_hero">
     <div class="main_title">
-        <h1>믿음의 대학,<br>믿을 수 있는 인재!</h1>
-        <h5>Your Future Begins Here!</h5>
-        <h5>MyongJi University</h5>
+        <h1 style="font-size: 2.5rem">믿음의 대학,<br>믿을 수 있는 인재!</h1>
+        <h5 style="font-size: 1.5rem">Your Future Begins Here!</h5>
+        <h5 style="font-size: 1.5rem">MyongJi University</h5>
     </div>
 </div>
 <main class="container">
     <div style="padding-top: 65px;">
-        <h1 style="font-size: 26px;">공지사항<small style="margin-left: 10px">Notice</small></h1>
+        <h1 style="font-size: 2rem;">공지사항<small style="margin-left: 10px">Notice</small></h1>
     </div>
     <div>
         <div class="row" style="padding: 50px 0 50px;">

@@ -10,15 +10,17 @@ import org.hibernate.validator.constraints.Length;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @NoArgsConstructor
 public class SignUpRequest {
 
-    @Email
+    @NotBlank(message = "이메일은 공백일 수 없습니다.")
+    @Email(message = "email 형식에 맞춰 입력해주세요.")
     private String email;
 
-    @Length(max = 30)
+    @Length(min = 6, max = 25, message = "비밀번호는 최소 {min}자리 최대 {max}자 이어야 합니다.")
     private String password;
 
     public User toEntity(PasswordEncoder passwordEncoder, Basket basket, Enrollment enrollment) {

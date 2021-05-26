@@ -28,7 +28,14 @@ let index = {
             alert(response.message);
             location.href = "/login"
         }).fail(function (error) {
-            alert(error.responseJSON["error-message"]);
+            // alert(error.responseJSON["error-message"]);
+            if (error.responseJSON["error-message"].email !== undefined && error.responseJSON["error-message"].password !== undefined) {
+                alert(error.responseJSON["error-message"].email + '\n' + error.responseJSON["error-message"].password)
+            } else if (error.responseJSON["error-message"].email !== undefined) {
+                alert(error.responseJSON["error-message"].email);
+            } else {
+                alert(error.responseJSON["error-message"].password)
+            }
         });
     },
 

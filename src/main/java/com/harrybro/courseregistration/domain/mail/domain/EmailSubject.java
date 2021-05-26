@@ -1,4 +1,4 @@
-package com.harrybro.courseregistration.domain.university.mail.domain;
+package com.harrybro.courseregistration.domain.mail.domain;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
