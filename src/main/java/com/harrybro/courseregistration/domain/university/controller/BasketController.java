@@ -20,7 +20,7 @@ public class BasketController {
     @Transactional(readOnly = true)
     @GetMapping("/basket")
     public String getBasket(Model model, @AuthenticationPrincipal PrincipalDetail principal) {
-        User user = userRepository.findByUsername(principal.getUsername())
+        User user = userRepository.findByEmail(principal.getUsername())
                 .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
         model.addAttribute("credit", user.getCredit());
         model.addAttribute("basket_lectures", user.getBasket().getLectures());

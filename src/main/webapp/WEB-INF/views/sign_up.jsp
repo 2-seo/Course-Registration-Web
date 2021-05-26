@@ -9,7 +9,7 @@
                 <div class="card-header">회원가입</div>
                 <div class="card-body">
                     <form>
-                        <input type="text" name="username" id="username" class="form-control mb-2" placeholder="name"
+                        <input type="text" name="email" id="email" class="form-control mb-2" placeholder="email"
                                required>
                         <input type="password" name="password" id="password" class="form-control mb-3"
                                placeholder="password" required>

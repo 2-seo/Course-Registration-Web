@@ -35,7 +35,18 @@ spring:
     show-sql: false
     properties:
       hibernate.format_sql: true # 보기 편하게 정렬돼서 보여줌.
-
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: mjuplim@gmail.com
+    password: plimq1w2e3
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            required: true
+          auth: true
   # Lazy-loading으로 인해 empty-beans이 생길 수 있다. 너그럽게 빈 객체를 허락해주는 옵션이다.
 #  jackson:
 #    serialization:

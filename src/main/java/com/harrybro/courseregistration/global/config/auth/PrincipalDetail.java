@@ -1,6 +1,7 @@
 package com.harrybro.courseregistration.global.config.auth;
 
 import com.harrybro.courseregistration.domain.user.domain.User;
+import com.harrybro.courseregistration.domain.user.domain.UserStateType;
 import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -31,7 +32,7 @@ public class PrincipalDetail implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return user.getEmail();
     }
 
     @Override
@@ -51,6 +52,6 @@ public class PrincipalDetail implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return user.getState().equals(UserStateType.NORMAL);
     }
 }

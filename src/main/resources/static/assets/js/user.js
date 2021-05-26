@@ -15,7 +15,7 @@ let index = {
 
     signUp: function () {
         let data = {
-            username: $('#username').val(),
+            email: $('#email').val(),
             password: $('#password').val()
         }
         $.ajax({

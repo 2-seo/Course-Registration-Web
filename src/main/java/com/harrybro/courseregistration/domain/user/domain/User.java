@@ -24,8 +24,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 100)
-    private String username;
+    @Column(nullable = false, unique = true)
+    private String email;
 
     @Column(nullable = false)
     private String password;
@@ -44,6 +44,10 @@ public class User {
     @Column(nullable = false)
     private RoleType role;
 
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private UserStateType state;
+
     @CreationTimestamp
     private Timestamp createdDate;
 
@@ -51,12 +55,13 @@ public class User {
     private Timestamp updatedDate;
 
     @Builder
-    public User(String username, String password, Basket basket, Enrollment enrollment, RoleType role) {
-        this.username = username;
+    public User(String email, String password, Basket basket, Enrollment enrollment, RoleType role) {
+        this.email = email;
         this.password = password;
         this.basket = basket;
         this.enrollment = enrollment;
         this.role = role;
+        this.state = UserStateType.WAIT;
         this.credit = 17;
     }
 
@@ -70,6 +75,10 @@ public class User {
     public void cancelEnrollment(Lecture lecture) {
         boolean result = this.enrollment.deleteLecture(lecture);
         if (result) this.credit += lecture.getCredit();
+    }
+
+    public void emailVerificationCompleted() {
+        this.state = UserStateType.NORMAL;
     }
 
 }

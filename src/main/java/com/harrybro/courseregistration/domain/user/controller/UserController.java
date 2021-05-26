@@ -16,4 +16,9 @@ public class UserController {
         return "sign_up";
     }
 
+    @GetMapping("/api/v1/email-auth/success")
+    public String authSuccess() {
+        return "email_auth_success";
+    }
+
 }

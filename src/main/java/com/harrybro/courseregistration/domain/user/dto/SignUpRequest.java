@@ -1,23 +1,29 @@
 package com.harrybro.courseregistration.domain.user.dto;
 
-import com.harrybro.courseregistration.domain.user.domain.User;
-import com.harrybro.courseregistration.domain.user.domain.RoleType;
 import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
+import com.harrybro.courseregistration.domain.user.domain.RoleType;
+import com.harrybro.courseregistration.domain.user.domain.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-@NoArgsConstructor
+import javax.validation.constraints.Email;
+
 @Getter
+@NoArgsConstructor
 public class SignUpRequest {
 
-    private String username;
+    @Email
+    private String email;
+
+    @Length(max = 30)
     private String password;
 
-    public User toEntity(BCryptPasswordEncoder passwordEncoder, Basket basket, Enrollment enrollment) {
+    public User toEntity(PasswordEncoder passwordEncoder, Basket basket, Enrollment enrollment) {
         return User.builder()
-                .username(this.username)
+                .email(this.email)
                 .password(passwordEncoder.encode(this.password))
                 .basket(basket)
                 .enrollment(enrollment)
