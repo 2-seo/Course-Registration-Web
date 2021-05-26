@@ -82,7 +82,7 @@ let basket = {
         }).done(function (response) {
             createMyToast(TOASTTYPE.SUCCESS, '장바구니', response.message, 5000);
         }).fail(function (error) {
-            createMyToast(TOASTTYPE.FAIL, '장바구니', error.responseJSON.errorMessage, 5000);
+            createMyToast(TOASTTYPE.FAIL, '장바구니', error.responseJSON["error-message"], 5000);
         });
     },
 

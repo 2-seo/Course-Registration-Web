@@ -28,7 +28,7 @@ let index = {
             alert(response.message);
             location.href = "/login"
         }).fail(function (error) {
-            alert(error.responseJSON.errorMessage);
+            alert(error.responseJSON["error-message"]);
         });
     },
 
@@ -52,7 +52,7 @@ let index = {
             location.href = '/';
             console.log(response);
         }).fail(function (error) {
-            console.log(error.responseJSON.errorMessage);
+            console.log(error.responseJSON["error-message"]);
         });
     },
 }

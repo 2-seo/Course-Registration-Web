@@ -149,13 +149,10 @@ let enrollment = {
             tableRow.append(tableData_time);
             tableRow.append(tableData_button);
             enrollment_table_body.append(tableRow);
-
             // 수강 남은 학점 표시
-            document.querySelector('.left_credit').innerText = response.data.leftCredit;
-
+            document.querySelector('.left_credit').innerText = response.data['leftCredit'];
         }).fail(function (error) {
-            createResultAlert(basketResultMessageBox, 'alert-danger', error.responseJSON.errorMessage);
-            console.log(error);
+            createResultAlert(basketResultMessageBox, 'alert-danger', error.responseJSON["error-message"]);
         });
     },
 
@@ -171,7 +168,7 @@ let enrollment = {
             // 수강 남은 학점 표시
             document.querySelector('.left_credit').innerText = response.data.leftCredit;
         }).fail(function (error) {
-            console.log(error.responseJSON.errorMessage);
+            console.log(error.responseJSON["error-message"]);
         });
     }
 }
@@ -186,8 +183,7 @@ let basket = {
         }).done(function (response) {
             createResultAlert(basketResultMessageBox, 'alert-success', response.message);
         }).fail(function (error) {
-            createResultAlert(basketResultMessageBox, 'alert-danger', error.responseJSON.errorMessage);
-            console.log(error);
+            createResultAlert(basketResultMessageBox, 'alert-danger', error.responseJSON["error-message"]);
         });
     },
 
@@ -201,7 +197,7 @@ let basket = {
             let removeTargetNode = event.parentNode.parentNode;
             event.parentNode.parentNode.parentNode.removeChild(removeTargetNode);
         }).fail(function (error) {
-            console.log(error.responseJSON.errorMessage);
+            console.log(error.responseJSON["error-message"]);
         });
     }
 

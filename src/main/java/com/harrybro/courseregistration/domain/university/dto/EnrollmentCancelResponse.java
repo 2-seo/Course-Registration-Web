@@ -11,9 +11,7 @@ public class EnrollmentCancelResponse {
     private final int leftCredit;
 
     public static EnrollmentCancelResponse from(User user) {
-        return EnrollmentCancelResponse.builder()
-                .leftCredit(user.getCredit())
-                .build();
+        return EnrollmentCancelResponse.builder().leftCredit(user.getCredit()).build();
     }
 
 }

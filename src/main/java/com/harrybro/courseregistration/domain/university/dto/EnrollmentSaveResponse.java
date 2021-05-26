@@ -32,6 +32,7 @@ public class EnrollmentSaveResponse {
                 .day(lecture.getDay().getValue())
                 .startTime(lecture.getPeriod().getStartTime())
                 .endTime(lecture.getPeriod().getEndTime())
+                .leftCredit(user.getCredit())
                 .build();
     }
 
