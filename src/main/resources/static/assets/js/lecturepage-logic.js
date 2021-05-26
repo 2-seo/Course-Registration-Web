@@ -66,7 +66,7 @@ let enrollment = {
         }).done(function (response) {
             createMyToast(TOASTTYPE.SUCCESS, '수강신청', response.message, 5000);
         }).fail(function (error) {
-            createMyToast(TOASTTYPE.FAIL, '수강신청', error.responseJSON.errorMessage, 5000);
+            createMyToast(TOASTTYPE.FAIL, '수강신청', error.responseJSON["error-message"], 5000);
         });
     },
 
