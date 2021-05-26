@@ -18,13 +18,12 @@ public class LectureService {
     }
 
     public List<Lecture> searchLecture(LectureSearchBy searchBy, String searchMessage) {
-        if (searchBy.equals(LectureSearchBy.LECTURER_AND_NAME)) {
+        if (searchBy.equals(LectureSearchBy.LECTURER_AND_NAME))
             return lectureRepository.findByNameContainingOrLecturerContaining(searchMessage, searchMessage);
-        } else if (searchBy.equals(LectureSearchBy.LECTURER)) {
+        else if (searchBy.equals(LectureSearchBy.LECTURER))
             return lectureRepository.findByLecturerContaining(searchMessage);
-        } else if (searchBy.equals(LectureSearchBy.NAME)) {
+        else if (searchBy.equals(LectureSearchBy.NAME))
             return lectureRepository.findByNameContaining(searchMessage);
-        }
         return null;
     }
 }

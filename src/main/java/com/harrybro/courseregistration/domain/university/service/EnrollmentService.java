@@ -1,13 +1,12 @@
 package com.harrybro.courseregistration.domain.university.service;
 
+import com.harrybro.courseregistration.domain.university.constant.EnrollmentResponseMessage;
 import com.harrybro.courseregistration.domain.university.domain.Lecture;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentCancelResponse;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentSaveResponse;
 import com.harrybro.courseregistration.domain.university.dto.UserAndLectureDto;
-import com.harrybro.courseregistration.domain.university.repository.LectureRepository;
 import com.harrybro.courseregistration.domain.university.util.UserAndLectureValidator;
 import com.harrybro.courseregistration.domain.user.domain.User;
-import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import com.harrybro.courseregistration.global.config.auth.PrincipalDetail;
 import com.harrybro.courseregistration.global.dto.ResponseDto;
 import lombok.RequiredArgsConstructor;
@@ -18,8 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class EnrollmentService {
 
-    private final UserRepository userRepository;
-    private final LectureRepository lectureRepository;
     private final UserAndLectureValidator userAndLectureValidator;
 
     @Transactional
@@ -28,7 +25,7 @@ public class EnrollmentService {
         User user = userAndLectureDto.getUser();
         Lecture lecture = userAndLectureDto.getLecture();
         user.enroll(lecture);
-        return ResponseDto.of("선택한 과목을 수강신청 완료하였습니다.", EnrollmentSaveResponse.of(user, lecture));
+        return ResponseDto.of(EnrollmentResponseMessage.SAVE_SUCCESS_TO_ENROLLMENT.getMessage(), EnrollmentSaveResponse.of(user, lecture));
     }
 
     @Transactional
@@ -37,7 +34,7 @@ public class EnrollmentService {
         User user = userAndLectureDto.getUser();
         Lecture lecture = userAndLectureDto.getLecture();
         user.cancelEnrollment(lecture);
-        return ResponseDto.of("선택한 과목을 수강 취소했습니다.", EnrollmentCancelResponse.from(user));
+        return ResponseDto.of(EnrollmentResponseMessage.DELETE_SUCCESS_TO_BASKET.getMessage(), EnrollmentCancelResponse.from(user));
     }
 
 }

@@ -4,6 +4,7 @@ import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
 import com.harrybro.courseregistration.domain.university.repository.BasketRepository;
 import com.harrybro.courseregistration.domain.university.repository.EnrollmentRepository;
+import com.harrybro.courseregistration.domain.user.constant.UserResponseMessage;
 import com.harrybro.courseregistration.domain.user.domain.User;
 import com.harrybro.courseregistration.domain.user.dto.SignUpRequest;
 import com.harrybro.courseregistration.domain.user.exception.UsernameDuplicateException;
@@ -29,7 +30,7 @@ public class UserService {
         Basket basket = basketRepository.save(new Basket());
         Enrollment enrollment = enrollmentRepository.save(new Enrollment());
         User user = userRepository.save(dto.toEntity(passwordEncoder, basket, enrollment));
-        return ResponseDto.from("회원가입이 완료되었습니다.");
+        return ResponseDto.from(UserResponseMessage.SiGN_UP_SUCCESS.getMessage());
     }
 
 }

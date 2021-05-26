@@ -3,6 +3,8 @@ package com.harrybro.courseregistration.domain.user.domain;
 import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
 import com.harrybro.courseregistration.domain.university.domain.Lecture;
+import com.harrybro.courseregistration.domain.user.exception.LackOfCreditException;
+import com.harrybro.courseregistration.domain.user.exception.UserExceptionMessage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -62,7 +64,7 @@ public class User {
         if (this.credit >= lecture.getCredit()) {
             boolean result = this.enrollment.saveLecture(lecture);
             if (result) this.credit -= lecture.getCredit();
-        } else throw new IllegalArgumentException("수강 가능 학점이 부족합니다");
+        } else throw new LackOfCreditException(UserExceptionMessage.LACK_OF_CREDIT);
     }
 
     public void cancelEnrollment(Lecture lecture) {
