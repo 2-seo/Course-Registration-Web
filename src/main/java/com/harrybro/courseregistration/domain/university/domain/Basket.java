@@ -2,15 +2,13 @@ package com.harrybro.courseregistration.domain.university.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.harrybro.courseregistration.domain.user.domain.User;
-import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 @Getter
 @Entity
 public class Basket {
@@ -23,13 +21,16 @@ public class Basket {
 //    private List<Account> accounts;
 
     @Setter
-    @OneToOne
+    @OneToOne(mappedBy = "basket")
     private User user;
 
     @JsonIgnoreProperties({"major"})
-    @OrderBy("id desc ")
-    @OneToMany
+    @ManyToMany
     private List<Lecture> lectures;
+
+    public Basket() {
+        this.lectures = new ArrayList<>();
+    }
 
     public void saveLecture(Lecture lecture) {
         this.lectures.add(lecture);

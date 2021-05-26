@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @NoArgsConstructor
@@ -24,6 +25,7 @@ public class Campus {
     @Builder
     public Campus(String name) {
         this.name = name;
+        this.college = new ArrayList<>();
     }
 
 }

@@ -1,6 +1,6 @@
 package com.harrybro.courseregistration.domain.university.service;
 
-import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
+import com.harrybro.courseregistration.domain.university.domain.Lecture;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentCancelResponse;
 import com.harrybro.courseregistration.domain.university.dto.EnrollmentSaveResponse;
 import com.harrybro.courseregistration.domain.university.dto.UserAndLectureDto;

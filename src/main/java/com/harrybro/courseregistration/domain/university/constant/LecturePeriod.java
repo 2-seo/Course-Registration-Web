@@ -1,4 +1,4 @@
-package com.harrybro.courseregistration.domain.university.domain.lecture;
+package com.harrybro.courseregistration.domain.university.constant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

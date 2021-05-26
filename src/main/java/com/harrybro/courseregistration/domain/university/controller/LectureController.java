@@ -1,6 +1,6 @@
 package com.harrybro.courseregistration.domain.university.controller;
 
-import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
+import com.harrybro.courseregistration.domain.university.domain.Lecture;
 import com.harrybro.courseregistration.domain.university.dto.LectureSearchBy;
 import com.harrybro.courseregistration.domain.university.service.LectureService;
 import lombok.RequiredArgsConstructor;
@@ -29,9 +29,6 @@ public class LectureController {
                                        @RequestParam String searchMessage, Model model) {
         List<Lecture> lectures = lectureService.searchLecture(searchBy, searchMessage);
         model.addAttribute("lectures", lectures);
-        System.out.println("test");
-        System.out.println(searchBy);
-        System.out.println(searchMessage);
         return "lecture";
     }
 

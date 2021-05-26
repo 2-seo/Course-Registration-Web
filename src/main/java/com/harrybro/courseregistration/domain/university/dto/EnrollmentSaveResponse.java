@@ -1,7 +1,7 @@
 package com.harrybro.courseregistration.domain.university.dto;
 
 import com.harrybro.courseregistration.domain.user.domain.User;
-import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
+import com.harrybro.courseregistration.domain.university.domain.Lecture;
 import lombok.*;
 
 import java.time.LocalTime;

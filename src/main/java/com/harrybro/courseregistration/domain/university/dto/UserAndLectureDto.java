@@ -1,6 +1,6 @@
 package com.harrybro.courseregistration.domain.university.dto;
 
-import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
+import com.harrybro.courseregistration.domain.university.domain.Lecture;
 import com.harrybro.courseregistration.domain.user.domain.User;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

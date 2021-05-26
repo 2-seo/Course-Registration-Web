@@ -37,7 +37,7 @@ spring:
       hibernate.format_sql: true # 보기 편하게 정렬돼서 보여줌.
 
   # Lazy-loading으로 인해 empty-beans이 생길 수 있다. 너그럽게 빈 객체를 허락해주는 옵션이다.
-  jackson:
-    serialization:
-      fail-on-empty-beans: false
+#  jackson:
+#    serialization:
+#      fail-on-empty-beans: false
 

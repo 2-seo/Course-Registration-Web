@@ -2,10 +2,11 @@ package com.harrybro.courseregistration.domain.user.domain;
 
 import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
-import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
+import com.harrybro.courseregistration.domain.university.domain.Lecture;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -29,9 +30,11 @@ public class User {
 
     private int credit;
 
+    @Setter
     @OneToOne
     private Basket basket;
 
+    @Setter
     @OneToOne
     private Enrollment enrollment;
 
@@ -52,24 +55,19 @@ public class User {
         this.basket = basket;
         this.enrollment = enrollment;
         this.role = role;
+        this.credit = 17;
     }
 
     public void enroll(Lecture lecture) {
         if (this.credit >= lecture.getCredit()) {
             boolean result = this.enrollment.saveLecture(lecture);
-            if (result) {
-                this.credit -= lecture.getCredit();
-            }
-        } else {
-            throw new IllegalArgumentException("수강 가능 학점이 부족합니다");
-        }
+            if (result) this.credit -= lecture.getCredit();
+        } else throw new IllegalArgumentException("수강 가능 학점이 부족합니다");
     }
 
     public void cancelEnrollment(Lecture lecture) {
         boolean result = this.enrollment.deleteLecture(lecture);
-        if (result) {
-            this.credit += lecture.getCredit();
-        }
+        if (result) this.credit += lecture.getCredit();
     }
 
 }

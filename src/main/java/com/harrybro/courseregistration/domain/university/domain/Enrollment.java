@@ -1,15 +1,13 @@
 package com.harrybro.courseregistration.domain.university.domain;
 
 import com.harrybro.courseregistration.domain.user.domain.User;
-import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-@NoArgsConstructor
 @Getter
 @Entity
 public class Enrollment {
@@ -19,15 +17,18 @@ public class Enrollment {
     private int id;
 
     @Setter
-    @OneToOne
+    @OneToOne(mappedBy = "enrollment")
     private User user;
 
-    @OneToMany
+    @ManyToMany
     private List<Lecture> lectures;
 
+    public Enrollment() {
+        this.lectures = new ArrayList<>();
+    }
+
     public boolean saveLecture(Lecture lecture) {
-        boolean validation = validation(lecture);
-        if (validation) {
+        if (validation(lecture)) {
             this.lectures.add(lecture);
             return true;
         }

@@ -1,6 +1,7 @@
-package com.harrybro.courseregistration.domain.university.domain.lecture;
+package com.harrybro.courseregistration.domain.university.domain;
 
-import com.harrybro.courseregistration.domain.university.domain.Major;
+import com.harrybro.courseregistration.domain.university.constant.LectureDay;
+import com.harrybro.courseregistration.domain.university.constant.LecturePeriod;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

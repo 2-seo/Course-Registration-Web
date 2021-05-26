@@ -31,9 +31,6 @@ public class UserService {
         Basket basket = basketRepository.save(new Basket());
         Enrollment enrollment = enrollmentRepository.save(new Enrollment());
         User user = userRepository.save(dto.toEntity(passwordEncoder, basket, enrollment));
-        basket.setUser(user);
-        enrollment.setUser(user);
-
         return ResponseDto.builder()
                 .status(HttpStatus.OK)
                 .message("회원가입이 완료되었습니다.")

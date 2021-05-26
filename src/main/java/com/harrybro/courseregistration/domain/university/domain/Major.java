@@ -1,11 +1,11 @@
 package com.harrybro.courseregistration.domain.university.domain;
 
-import com.harrybro.courseregistration.domain.university.domain.lecture.Lecture;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
@@ -29,6 +29,7 @@ public class Major {
     public Major(String name, College college) {
         this.name = name;
         this.college = college;
+        this.lectures = new ArrayList<>();
     }
 
 }
