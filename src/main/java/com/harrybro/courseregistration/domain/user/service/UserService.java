@@ -1,15 +1,16 @@
 package com.harrybro.courseregistration.domain.user.service;
 
-import com.harrybro.courseregistration.domain.university.domain.Basket;
-import com.harrybro.courseregistration.domain.university.domain.Enrollment;
 import com.harrybro.courseregistration.domain.mail.domain.EmailAuthCode;
 import com.harrybro.courseregistration.domain.mail.domain.EmailSubject;
 import com.harrybro.courseregistration.domain.mail.repository.EmailAuthCodeRepository;
 import com.harrybro.courseregistration.domain.mail.util.EmailAuthCodeGenerator;
 import com.harrybro.courseregistration.domain.mail.util.EmailUtil;
+import com.harrybro.courseregistration.domain.university.domain.Basket;
+import com.harrybro.courseregistration.domain.university.domain.Enrollment;
 import com.harrybro.courseregistration.domain.university.repository.BasketRepository;
 import com.harrybro.courseregistration.domain.university.repository.EnrollmentRepository;
 import com.harrybro.courseregistration.domain.user.constant.UserResponseMessage;
+import com.harrybro.courseregistration.domain.user.domain.User;
 import com.harrybro.courseregistration.domain.user.dto.SignUpRequest;
 import com.harrybro.courseregistration.domain.user.exception.EmailDuplicateException;
 import com.harrybro.courseregistration.domain.user.exception.EmailNotVerifiedException;
@@ -17,6 +18,7 @@ import com.harrybro.courseregistration.domain.user.exception.UserExceptionMessag
 import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import com.harrybro.courseregistration.global.dto.ResponseDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -60,6 +62,11 @@ public class UserService {
         Enrollment enrollment = enrollmentRepository.save(new Enrollment());
         userRepository.save(dto.toEntity(passwordEncoder, basket, enrollment));
         return ResponseDto.from(UserResponseMessage.SiGN_UP_SUCCESS.getMessage());
+    }
+
+    public User findByEmail(String email) {
+        return this.userRepository.findByEmail(email)
+                .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
     }
 
 }
