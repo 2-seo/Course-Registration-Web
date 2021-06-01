@@ -28,13 +28,15 @@ let index = {
             alert(response.message);
             location.href = "/login"
         }).fail(function (error) {
-            // alert(error.responseJSON["error-message"]);
-            if (error.responseJSON["error-message"].email !== undefined && error.responseJSON["error-message"].password !== undefined) {
-                alert(error.responseJSON["error-message"].email + '\n' + error.responseJSON["error-message"].password)
-            } else if (error.responseJSON["error-message"].email !== undefined) {
-                alert(error.responseJSON["error-message"].email);
+            const e = error.responseJSON['error-message'];
+            if (e.email !== undefined && e.password !== undefined) {
+                alert(e.email + '\n' + e.password)
+            } else if (e.email !== undefined && e.password === undefined) {
+                alert(e.email);
+            } else if (e.email === undefined && e.password !== undefined) {
+                alert(e.password);
             } else {
-                alert(error.responseJSON["error-message"].password)
+                alert(e);
             }
         });
     },

@@ -16,7 +16,6 @@ public class EmailUtil {
     private final JavaMailSender javaMailSender;
 
     public void sendEmail(String toAddress, EmailSubject subject, String body) {
-
         MimeMessage message = javaMailSender.createMimeMessage();
         MimeMessageHelper helper = new MimeMessageHelper(message);
         try {

@@ -13,12 +13,12 @@ import com.harrybro.courseregistration.domain.user.constant.UserResponseMessage;
 import com.harrybro.courseregistration.domain.user.domain.User;
 import com.harrybro.courseregistration.domain.user.dto.SignUpRequest;
 import com.harrybro.courseregistration.domain.user.exception.EmailDuplicateException;
+import com.harrybro.courseregistration.domain.user.exception.EmailNotFoundException;
 import com.harrybro.courseregistration.domain.user.exception.EmailNotVerifiedException;
 import com.harrybro.courseregistration.domain.user.exception.UserExceptionMessage;
 import com.harrybro.courseregistration.domain.user.repository.UserRepository;
 import com.harrybro.courseregistration.global.dto.ResponseDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -32,15 +32,6 @@ public class UserService {
     private final BasketRepository basketRepository;
     private final EnrollmentRepository enrollmentRepository;
     private final PasswordEncoder passwordEncoder;
-
-//    @Transactional
-//    public ResponseDto<?> create(SignUpRequest dto) {
-//        if (userRepository.existsByUsername(dto.getEmail())) throw new UsernameDuplicateException(dto.getEmail());
-//        Basket basket = basketRepository.save(new Basket());
-//        Enrollment enrollment = enrollmentRepository.save(new Enrollment());
-//        User user = userRepository.save(dto.toEntity(passwordEncoder, basket, enrollment));
-//        return ResponseDto.from(UserResponseMessage.SiGN_UP_SUCCESS.getMessage());
-//    }
 
     public ResponseDto<?> create(SignUpRequest dto) {
         if (emailAuthCodeRepository.existsByEmail(dto.getEmail()))
@@ -66,7 +57,7 @@ public class UserService {
 
     public User findByEmail(String email) {
         return this.userRepository.findByEmail(email)
-                .orElseThrow(() -> new UsernameNotFoundException("해당 유저가 존재하지 않습니다."));
+                .orElseThrow(() -> new EmailNotFoundException(UserExceptionMessage.EMAIL_NOT_FOUND_EXCEPTION));
     }
 
 }
