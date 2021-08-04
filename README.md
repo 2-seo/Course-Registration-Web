@@ -8,10 +8,11 @@
 
 |분류|항목|
 |:---:|---|
-| 언어 | `Java` |
-| 프래임워크 | `SpringBoot`|
-| 데이터베이스 | `MySql` |
-| 라이브러리 | `Lombok`, `Spring Data Jpa`, `Spring Security`, `Validation`, `Security Taglibs`, `jasper`, `jstl` |
+| Language | `Java` |
+| Framework | `SpringBoot`|
+| DB | `MySql` |
+| Library | `Lombok`, `Spring Data Jpa`, `Spring Security`, `Validation`, `Security Taglibs`, `jasper`, `jstl`, `Java Mail Sender` |
+|Build | `Maven` |
 
 ## 주요 기능
 
