@@ -1,4 +1,4 @@
-package com.harrybro.courseregistration.domain.mail.dto;
+package com.harrybro.courseregistration.global.infra.mail.dto;
 
 import lombok.Builder;
 import lombok.Getter;

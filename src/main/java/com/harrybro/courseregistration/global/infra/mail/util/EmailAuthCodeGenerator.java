@@ -1,4 +1,4 @@
-package com.harrybro.courseregistration.domain.mail.util;
+package com.harrybro.courseregistration.global.infra.mail.util;
 
 import java.util.Random;
 

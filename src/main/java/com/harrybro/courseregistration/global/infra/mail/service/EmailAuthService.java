@@ -1,7 +1,7 @@
-package com.harrybro.courseregistration.domain.mail.service;
+package com.harrybro.courseregistration.global.infra.mail.service;
 
-import com.harrybro.courseregistration.domain.mail.domain.EmailAuthCode;
-import com.harrybro.courseregistration.domain.mail.repository.EmailAuthCodeRepository;
+import com.harrybro.courseregistration.global.infra.mail.domain.EmailAuthCode;
+import com.harrybro.courseregistration.global.infra.mail.repository.EmailAuthCodeRepository;
 import com.harrybro.courseregistration.domain.user.domain.User;
 import com.harrybro.courseregistration.domain.user.domain.UserStateType;
 import com.harrybro.courseregistration.domain.user.exception.EmailNotFoundException;

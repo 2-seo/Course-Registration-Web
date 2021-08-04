@@ -1,4 +1,4 @@
-package com.harrybro.courseregistration.domain.mail.exception;
+package com.harrybro.courseregistration.global.infra.mail.exception;
 
 public class AuthCodeMismatchException extends IllegalArgumentException{
 

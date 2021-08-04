@@ -1,10 +1,10 @@
 package com.harrybro.courseregistration.domain.user.service;
 
-import com.harrybro.courseregistration.domain.mail.domain.EmailAuthCode;
-import com.harrybro.courseregistration.domain.mail.domain.EmailSubject;
-import com.harrybro.courseregistration.domain.mail.repository.EmailAuthCodeRepository;
-import com.harrybro.courseregistration.domain.mail.util.EmailAuthCodeGenerator;
-import com.harrybro.courseregistration.domain.mail.util.EmailUtil;
+import com.harrybro.courseregistration.global.infra.mail.domain.EmailAuthCode;
+import com.harrybro.courseregistration.global.infra.mail.domain.EmailSubject;
+import com.harrybro.courseregistration.global.infra.mail.repository.EmailAuthCodeRepository;
+import com.harrybro.courseregistration.global.infra.mail.util.EmailAuthCodeGenerator;
+import com.harrybro.courseregistration.global.infra.mail.util.EmailUtil;
 import com.harrybro.courseregistration.domain.university.domain.Basket;
 import com.harrybro.courseregistration.domain.university.domain.Enrollment;
 import com.harrybro.courseregistration.domain.university.repository.BasketRepository;

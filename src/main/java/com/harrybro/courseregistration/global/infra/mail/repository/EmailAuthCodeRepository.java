@@ -1,6 +1,6 @@
-package com.harrybro.courseregistration.domain.mail.repository;
+package com.harrybro.courseregistration.global.infra.mail.repository;
 
-import com.harrybro.courseregistration.domain.mail.domain.EmailAuthCode;
+import com.harrybro.courseregistration.global.infra.mail.domain.EmailAuthCode;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

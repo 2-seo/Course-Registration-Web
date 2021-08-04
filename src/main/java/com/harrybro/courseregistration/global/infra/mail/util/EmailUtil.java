@@ -1,6 +1,6 @@
-package com.harrybro.courseregistration.domain.mail.util;
+package com.harrybro.courseregistration.global.infra.mail.util;
 
-import com.harrybro.courseregistration.domain.mail.domain.EmailSubject;
+import com.harrybro.courseregistration.global.infra.mail.domain.EmailSubject;
 import lombok.RequiredArgsConstructor;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;

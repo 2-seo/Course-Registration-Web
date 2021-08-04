@@ -1,7 +1,7 @@
-package com.harrybro.courseregistration.domain.mail.domain;
+package com.harrybro.courseregistration.global.infra.mail.domain;
 
-import com.harrybro.courseregistration.domain.mail.exception.AuthCodeMismatchException;
-import com.harrybro.courseregistration.domain.mail.exception.EmailExceptionMessage;
+import com.harrybro.courseregistration.global.infra.mail.exception.AuthCodeMismatchException;
+import com.harrybro.courseregistration.global.infra.mail.exception.EmailExceptionMessage;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
