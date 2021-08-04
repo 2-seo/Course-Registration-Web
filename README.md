@@ -102,12 +102,12 @@
 
 ### 장바구니에서 수강신청
 
-![장바구니에서수강신청안내](https://user-images.githubusercontent.com/67419004/128128663-e1552dac-f635-4f12-a512-cbc1fee77092.png)
+![장바구니에서수강신청안내](https://user-images.githubusercontent.com/67419004/128129322-c4d6a5e1-78d5-4992-a9ea-f26d7c3270b0.png)
 
 - 이미 수강신청한 강의인 경우
   ![장바구니에서이미수강신청강의](https://user-images.githubusercontent.com/67419004/128128669-13496bfc-cc0c-4fef-a02b-6328d1829af4.png)
 
 ### 장바구니에서 수강신청 취소
 
-![수강신청취소알림](https://user-images.githubusercontent.com/67419004/128128451-7e642130-4bbd-48ea-8265-e2dc4e412732.png)
+![수강신청취소알림](https://user-images.githubusercontent.com/67419004/128129452-16c9532b-ccb2-46fc-8a0d-aadef0ef6260.png)
 ![수강신청취소완료](https://user-images.githubusercontent.com/67419004/128128459-58a4eeb5-6d81-4b34-8907-c5fdec919b5d.png)
