@@ -69,7 +69,7 @@
 
 ### 로그인
 
-![로그인](https://user-images.githubusercontent.com/67419004/128127497-984d84bb-55c5-408d-89d9-d8ec558c7721.png)
+![로그인](https://user-images.githubusercontent.com/67419004/128129592-9a46737c-6e7a-46d9-97f5-2c2956501c12.png)
 
 - 로그인 후 메뉴
   ![로그인 후 메뉴](https://user-images.githubusercontent.com/67419004/128127501-249b0f0b-d653-4c91-87ad-f80857b33c93.png)
